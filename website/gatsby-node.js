@@ -9,19 +9,22 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
     {
-      allNodeArticle {
+      allPages {
         edges {
           node {
             id
+            body
+            title
+            path
           }
         }
       }
     }
   `).then(result => {
-    result.data.allNodeArticle.edges.forEach(({ node }) => {
+    result.data.allPages.edges.forEach(({ node }) => {
       createPage({
-        path: node.id,
-        component: path.resolve(`./src/templates/article.js`),
+        path: node.path,
+        component: path.resolve(`./src/templates/page.js`),
         context: {
           id: node.id,
         },
