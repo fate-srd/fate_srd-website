@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "develop": "yarn workspace website develop",
+    "lando:start": "cd ../fate_srd-backend && lando start",
+    "composer:install": "cd ../fate_srd-backend && lando composer install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +20,8 @@
   },
   "homepage": "https://github.com/amazingrando/fate-gatsby#readme",
   "private": true,
-  "workspaces": ["fate_srd-frontend", "website"]
+  "workspaces": [
+    "fate_srd-frontend",
+    "website"
+  ]
 }

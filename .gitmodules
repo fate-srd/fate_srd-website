@@ -1,3 +1,6 @@
 [submodule "fate_srd-frontend"]
 	path = fate_srd-frontend
 	url = https://github.com/fate-srd/fate_srd-frontend
+[submodule "fate_srd-backend"]
+	path = fate_srd-backend
+	url = https://github.com/fate-srd/fate_srd-backend
