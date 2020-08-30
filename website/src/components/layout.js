@@ -12,12 +12,20 @@ import Header from "./header"
 import Footer from "./footer"
 import "../../../fate_srd-frontend/components/style.scss"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, aside }) => {
   return (
     <div className="page-wrapper">
       <Header />
-      <div class="site-main">
-        <div class="site-main__content">{children}</div>
+      <div className="site-main">
+        <div
+          className={
+            aside
+              ? "site-main__content site-main__content--aside"
+              : "site-main__content"
+          }
+        >
+          {children}
+        </div>
       </div>
       <Footer />
     </div>

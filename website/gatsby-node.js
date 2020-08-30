@@ -13,7 +13,15 @@ exports.createPages = ({ graphql, actions }) => {
         edges {
           node {
             id
-            body
+            title
+            path
+          }
+        }
+      }
+      allArticles {
+        edges {
+          node {
+            id
             title
             path
           }
@@ -25,6 +33,15 @@ exports.createPages = ({ graphql, actions }) => {
       createPage({
         path: node.path,
         component: path.resolve(`./src/templates/page.js`),
+        context: {
+          id: node.id,
+        },
+      })
+    })
+    result.data.allArticles.edges.forEach(({ node }) => {
+      createPage({
+        path: node.path,
+        component: path.resolve(`./src/templates/article.js`),
         context: {
           id: node.id,
         },

@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -30,8 +32,12 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: `http://fate8.lndo.site/`,
+        baseUrl: ` http://fate-srd-backend.lndo.site/`,
         apiBase: `api`, // optional, defaults to `jsonapi`
+        basicAuth: {
+          username: process.env.BASIC_AUTH_USERNAME,
+          password: process.env.BASIC_AUTH_PASSWORD,
+        },
       },
     },
     `gatsby-plugin-sass`,
