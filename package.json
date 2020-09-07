@@ -6,6 +6,7 @@
   "scripts": {
     "develop": "yarn workspace website develop",
     "storybook": "yarn workspace fate_srd-frontend develop",
+    "clean": "yarn workspace website gatsby clean",
     "start:backend": "cd ./fate_srd-backend && lando start",
     "composer:install": "cd ./fate_srd-backend && lando composer install",
     "test": "echo \"Error: no test specified\" && exit 1"

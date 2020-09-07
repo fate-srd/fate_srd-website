@@ -6,11 +6,11 @@ export default ({ data }) => {
   const pageData = data.allPages.edges[0].node
   return (
     <Layout>
-      <main class="main-content-wrapper">
-        <h1 class="page-title">{pageData.title}</h1>
+      <main className="main-content-wrapper">
+        <h1 className="page-title">{pageData.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: pageData.body }}></div>
       </main>
-      <aside class="aside-wrapper">Aside</aside>
+      <aside className="aside-wrapper">Aside</aside>
     </Layout>
   )
 }

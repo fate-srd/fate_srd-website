@@ -13,7 +13,7 @@ export default ({ data }) => {
         <h1 className="page-title">{pageData.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: pageData.body.value }}></div>
       </main>
-      <aside class="aside-wrapper">
+      <aside className="aside-wrapper">
         <Aside ruleBook={ruleBook} />
       </aside>
     </Layout>
