@@ -2,6 +2,9 @@ import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
 import PropTypes from "prop-types"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPlus, faMinus } from "@fortawesome/pro-solid-svg-icons"
+
 function createMenuHierarchy(menuData, menuName) {
   let tree = [],
     mappedArr = {},
@@ -47,10 +50,14 @@ function createMenuHierarchy(menuData, menuName) {
   return tree
 }
 
-function buildLink(link) {
-  if (!link.external && link.link.uri_alias) {
+function buildLink(link, classBase) {
+  if (!link.external && link.link.url) {
     return (
-      <Link activeClassName="active" to={link.link.uri_alias}>
+      <Link
+        activeClassName="active"
+        to={link.link.url}
+        className={classBase ? `${classBase}__link` : ""}
+      >
         {link.title}
       </Link>
     )
@@ -58,6 +65,7 @@ function buildLink(link) {
     return (
       <Link
         activeClassName="active"
+        className={classBase ? `${classBase}__link` : ""}
         to={link.link.uri.replace("internal:", "")}
       >
         {link.title}
@@ -65,14 +73,17 @@ function buildLink(link) {
     )
   } else {
     return (
-      <a href={link.link.uri_alias} className={"external"}>
+      <a
+        href={link.link.url}
+        className={classBase ? `${classBase}__link external` : "external"}
+      >
         {link.title}
       </a>
     )
   }
 }
 
-function buildMenu(menuArray) {
+function buildMenu(menuArray, classBase) {
   if (!menuArray) {
     return
   }
@@ -80,14 +91,39 @@ function buildMenu(menuArray) {
   for (let item in menuArray) {
     if (menuArray[item].children.length !== 0) {
       menu.push(
-        <li key={menuArray[item].drupal_id}>
-          {buildLink(menuArray[item])}
-          <ul className="submenu">{buildMenu(menuArray[item].children)}</ul>
+        <li
+          key={menuArray[item].drupal_id}
+          className={classBase ? `${classBase}__li` : ""}
+        >
+          {buildLink(menuArray[item], classBase)}
+          <button
+            className={classBase ? `${classBase}__show-menu` : "show-menu"}
+            aria-expanded="false"
+          >
+            <span className="closed">
+              <FontAwesomeIcon icon={faPlus} />
+            </span>
+            <span className="open">
+              <FontAwesomeIcon icon={faMinus} />
+            </span>
+          </button>
+          <ul
+            className={
+              classBase ? `${classBase}__ul ${classBase}__ul--child` : ""
+            }
+          >
+            {buildMenu(menuArray[item].children, classBase)}
+          </ul>
         </li>
       )
     } else {
       menu.push(
-        <li key={menuArray[item].drupal_id}>{buildLink(menuArray[item])}</li>
+        <li
+          key={menuArray[item].drupal_id}
+          className={classBase ? `${classBase}__li` : ""}
+        >
+          {buildLink(menuArray[item], classBase)}
+        </li>
       )
     }
   }
@@ -95,19 +131,19 @@ function buildMenu(menuArray) {
   return menu
 }
 
-function generateMenu(menuLinks, menuName) {
+function generateMenu(menuLinks, menuName, classBase) {
   let menu
 
   menu = createMenuHierarchy(
     menuLinks.allMenuLinkContentMenuLinkContent.edges,
     menuName
   )
-  menu = buildMenu(menu)
+  menu = buildMenu(menu, classBase)
 
   return menu
 }
 
-const Menu = ({ menuName }) => (
+const Menu = ({ menuName, classBase }) => (
   <StaticQuery
     query={graphql`
       query MenuQuery {
@@ -136,8 +172,10 @@ const Menu = ({ menuName }) => (
       }
     `}
     render={data => (
-      <nav className={menuName}>
-        <ul>{generateMenu(data, menuName)}</ul>
+      <nav className={classBase ? `${classBase}__nav` : menuName}>
+        <ul className={classBase ? `${classBase}__ul` : ""}>
+          {generateMenu(data, menuName, classBase)}
+        </ul>
       </nav>
     )}
   />
@@ -145,6 +183,7 @@ const Menu = ({ menuName }) => (
 
 Menu.propTypes = {
   menuName: PropTypes.string,
+  classBase: PropTypes.string,
 }
 
 Menu.defaultProps = {

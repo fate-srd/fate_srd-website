@@ -1,6 +1,7 @@
 // import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import "fate_srd-frontend/.storybook/_drupal.js"
 
 import logo from "../../../fate_srd-frontend/images/logo.svg"
 
