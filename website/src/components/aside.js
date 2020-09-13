@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/pro-regular-svg-icons';
 import Menu from './menu';
 import WhereToBuy from './aside/whereToBuy';
 
@@ -49,8 +51,8 @@ class Aside extends React.Component {
       <nav className="nav-in-page">
         <h1 className="nav-in-page__title nav-in-page__mobile-toggle">
           <span>
-            <i className="far fa-bars" />
-            <i className="far fa-times" />
+            <FontAwesomeIcon icon={faBars} className="bars" />
+            <FontAwesomeIcon icon={faTimes} className="times" />
           </span>
           {ruleBook}
         </h1>
