@@ -1,25 +1,30 @@
-// import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import logo from "../../../fate_srd-frontend/images/logo.svg"
-import patreon from "../../../fate_srd-frontend/images/become_a_patron_button@2x.png"
+import logo from '../../../fate_srd-frontend/images/logo.svg';
+import patreon from '../../../fate_srd-frontend/images/become_a_patron_button@2x.png';
 
 const Footer = () => (
   <footer className="site-footer">
     <div className="site-footer__content">
       <div className="site-footer__logo-wrapper">
-        <img src={logo} alt="" className="site-footer__logo" />
+        <Link to="/" className="site-footer__link">
+          <img src={logo} alt="" className="site-footer__logo" />
+        </Link>
       </div>
-      <a href="#3" className="site-footer__patreon">
+      <a
+        href="https://www.patreon.com/fate_srd"
+        className="site-footer__patreon"
+      >
         <img src={patreon} alt="" className="site-footer__patreon-img" />
       </a>
       <nav className="site-footer__nav">
         <ul className="site-footer__ul">
           <li className="site-footer__li">
-            <a className="site-footer__link" href="/about-site">
+            <Link to="/about-site" className="site-footer__link">
               About This Site
-            </a>
+            </Link>
           </li>
           <li className="site-footer__li">
             <a className="site-footer__link" href="/contact-us">
@@ -27,14 +32,14 @@ const Footer = () => (
             </a>
           </li>
           <li className="site-footer__li">
-            <a className="site-footer__link" href="/official-licensing-fate">
+            <Link to="/official-licensing-fate" className="site-footer__link">
               Official Licensing
-            </a>
+            </Link>
           </li>
           <li className="site-footer__li">
-            <a className="site-footer__link" href="/privacy-policy">
+            <Link to="/privacy-policy" className="site-footer__link">
               Privacy Policy
-            </a>
+            </Link>
           </li>
           <li className="site-footer__li">
             <a
@@ -65,13 +70,13 @@ const Footer = () => (
           </p>
           <p>This site is not affiliated with Evil Hat Productions, LLC.</p>
           <p>
-            This work is based on{" "}
+            This work is based on{' '}
             <a href="http://www.faterpg.com/">Fate Core System</a> and Fate
             Accelerated Edition, products of Evil Hat Productions, LLC,
             developed, authored, and edited by Leonard Balsera, Brian Engard,
             Jeremy Keller, Ryan Macklin, Mike Olson, Clark Valentine, Amanda
             Valentine, Fred Hicks, and Rob Donoghue, and licensed for our use
-            under the{" "}
+            under the{' '}
             <a href="https://creativecommons.org/licenses/by/3.0/">
               Creative Commons Attribution 3.0 Unported license
             </a>
@@ -87,13 +92,13 @@ const Footer = () => (
             permission. The Four Actions icons were designed by Jeremy Keller.
           </p>
           <p>
-            This work is based on{" "}
-            <a href="http://www.faterpg.com/">Fate Condensed</a> (found at{" "}
+            This work is based on{' '}
+            <a href="http://www.faterpg.com/">Fate Condensed</a> (found at{' '}
             <a href="http://www.faterpg.com/">http://www.faterpg.com/</a>), a
             product of Evil Hat Productions, LLC, developed, authored, and
             edited by PK Sullivan, Ed Turner, Leonard Balsera, Fred Hicks,
             Richard Bellingham, Robert Hanz, Ryan Macklin, and Sophie Lagacé,
-            and licensed for our use under the{" "}
+            and licensed for our use under the{' '}
             <a href="https://creativecommons.org/licenses/by/3.0/">
               Creative Commons Attribution 3.0 Unported license
             </a>
@@ -103,14 +108,14 @@ const Footer = () => (
       </div>
     </div>
   </footer>
-)
+);
 
 Footer.propTypes = {
   siteTitle: PropTypes.string,
-}
+};
 
 Footer.defaultProps = {
   siteTitle: ``,
-}
+};
 
-export default Footer
+export default Footer;

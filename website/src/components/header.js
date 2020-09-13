@@ -1,4 +1,4 @@
-// import { Link } from "gatsby"
+import { Link } from 'gatsby';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -47,7 +47,9 @@ class Header extends React.Component {
     return (
       <header className="site-header">
         <div className="site-header__branding">
-          <img src={logo} alt="" className="site-header__logo" />
+          <Link to="/">
+            <img src={logo} alt="" className="site-header__logo" />
+          </Link>
           <div className="site-header__branding__menu-toggle">
             <FontAwesomeIcon icon={faBars} className="bars" />
             <FontAwesomeIcon icon={faTimes} className="times" />
@@ -167,7 +169,10 @@ class Header extends React.Component {
                 </a>
               </li>
               <li className="nav-primary__li">
-                <a className="nav-primary__link" href="#1">
+                <a
+                  className="nav-primary__link"
+                  href="https://community.fate-srd.com/"
+                >
                   <FontAwesomeIcon
                     icon={faComments}
                     className="nav-primary__link-icon"
