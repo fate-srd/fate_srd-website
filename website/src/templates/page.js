@@ -1,19 +1,19 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/layout';
 
 export default ({ data }) => {
-  const pageData = data.allPages.edges[0].node
+  const pageData = data.allPages.edges[0].node;
   return (
     <Layout>
       <main className="main-content-wrapper">
         <h1 className="page-title">{pageData.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: pageData.body }}></div>
+        <div dangerouslySetInnerHTML={{ __html: pageData.body }} />
       </main>
       <aside className="aside-wrapper">Aside</aside>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query($id: String!) {
@@ -28,4 +28,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

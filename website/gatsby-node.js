@@ -3,10 +3,10 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
-const path = require(`path`)
+const path = require(`path`);
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
   return graphql(`
     {
       allPages {
@@ -24,11 +24,24 @@ exports.createPages = ({ graphql, actions }) => {
             id
             title
             path
+            relationships {
+              tags {
+                ... on taxonomy_term__fate_version {
+                  id
+                  name
+                  relationships {
+                    node__author {
+                      title
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     result.data.allPages.edges.forEach(({ node }) => {
       createPage({
         path: node.path,
@@ -36,16 +49,17 @@ exports.createPages = ({ graphql, actions }) => {
         context: {
           id: node.id,
         },
-      })
-    })
+      });
+    });
     result.data.allArticles.edges.forEach(({ node }) => {
       createPage({
         path: node.path,
         component: path.resolve(`./src/templates/article.js`),
         context: {
           id: node.id,
+          relationships: node.relationships,
         },
-      })
-    })
-  })
-}
+      });
+    });
+  });
+};

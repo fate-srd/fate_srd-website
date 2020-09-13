@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/pro-regular-svg-icons';
 import Menu from './menu';
 import WhereToBuy from './aside/whereToBuy';
+import AuthorList from './aside/AuthorList';
 
 class Aside extends React.Component {
   componentDidMount() {
@@ -45,7 +46,7 @@ class Aside extends React.Component {
   }
 
   render() {
-    const { ruleBook } = this.props;
+    const { ruleBook, authorlist } = this.props;
     const menu = ruleBook.toLowerCase().split(' ').join('-');
     return (
       <nav className="nav-in-page">
@@ -93,13 +94,8 @@ class Aside extends React.Component {
                 );
               }}
             />
-
             <WhereToBuy value={menu} />
-
-            <h2 className="nav-in-page__about__header">Author(s):</h2>
-            <p>
-              Amanda Valentine, Clark Valentine, Fred Hicks, Leonard Balsera
-            </p>
+            <AuthorList authorlist={authorlist} />
           </div>
         </div>
       </nav>
@@ -109,6 +105,7 @@ class Aside extends React.Component {
 
 Aside.propTypes = {
   ruleBook: PropTypes.string,
+  authorlist: PropTypes.array,
 };
 
 export default Aside;
