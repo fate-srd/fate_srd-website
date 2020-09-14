@@ -80,7 +80,7 @@ class Header extends React.Component {
                   <dl className="nav-flyout__region">
                     <dt>Core Rules</dt>
                     <dd>
-                      <a href="#1">Fate Core</a>
+                      <Link to="/fate-core">Fate Core</Link>
                     </dd>
                     <dd>
                       <a href="#1">Fate Accelerated</a>

@@ -4,6 +4,8 @@ import React from 'react';
 function AuthorList(props) {
   const { authorlist } = props;
 
+  if (authorlist === undefined) return '';
+
   return (
     <section>
       <h2 className="nav-in-page__about__header">Author(s):</h2>
