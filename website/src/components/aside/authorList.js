@@ -4,7 +4,7 @@ import React from 'react';
 function AuthorList(props) {
   const { authorlist } = props;
 
-  if (authorlist === undefined) return '';
+  if (authorlist === undefined || authorlist === null) return '';
 
   return (
     <section>

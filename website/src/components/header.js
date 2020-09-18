@@ -83,20 +83,22 @@ class Header extends React.Component {
                       <Link to="/fate-core">Fate Core</Link>
                     </dd>
                     <dd>
-                      <a href="#1">Fate Accelerated</a>
+                      <Link to="/fate-accelerated">Fate Accelerated</Link>
                     </dd>
                     <dd>
-                      <a href="#1">Fate Condensed</a>
+                      <Link to="/fate-condensed">Fate Condensed</Link>
                     </dd>
                   </dl>
 
                   <dl className="nav-flyout__region">
                     <dt>Toolkits</dt>
                     <dd>
-                      <a href="#1">Fate System Toolkit</a>
+                      <Link to="/fate-system-toolkit">Fate System Toolkit</Link>
                     </dd>
                     <dd>
-                      <a href="#1">Fate Adversary Toolkit</a>
+                      <Link to="/fate-adversary-toolkit">
+                        Fate Adversary Toolkit
+                      </Link>
                     </dd>
                   </dl>
 
