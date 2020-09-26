@@ -49,8 +49,6 @@ function createMenuHierarchy(menuData, menuName) {
 }
 
 function buildLink(link, classBase) {
-  console.log('link!');
-  console.log(link);
   if (!link.external && link.link.uri_alias) {
     return (
       <Link

@@ -3,6 +3,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Aside from '../components/aside';
+import SEO from '../components/seo';
 
 function Article({ data }) {
   const pageData = data.allArticles.nodes[0];
@@ -16,6 +17,7 @@ function Article({ data }) {
 
   return (
     <Layout aside>
+      <SEO title={pageData.title} />
       <main className="main-content-wrapper">
         <p className="rules-section">{ruleBook}</p>
         <h1 className="page-title">{pageData.title}</h1>

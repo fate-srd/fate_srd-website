@@ -5,35 +5,34 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import Header from "./header"
-import Footer from "./footer"
-import "../../../fate_srd-frontend/components/style.scss"
+import Header from './header';
+import Footer from './footer';
+import '../../../fate_srd-frontend/components/style.scss';
 
-const Layout = ({ children, aside }) => {
-  return (
-    <div className="page-wrapper">
-      <Header />
-      <div className="site-main">
-        <div
-          className={
-            aside
-              ? "site-main__content site-main__content--aside"
-              : "site-main__content"
-          }
-        >
-          {children}
-        </div>
+const Layout = ({ children, aside }) => (
+  <div className="page-wrapper">
+    <Header />
+    <div className="site-main">
+      <div
+        className={
+          aside
+            ? 'site-main__content site-main__content--aside'
+            : 'site-main__content'
+        }
+      >
+        {children}
       </div>
-      <Footer />
     </div>
-  )
-}
+    <Footer />
+  </div>
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+  aside: PropTypes.string,
+};
 
-export default Layout
+export default Layout;

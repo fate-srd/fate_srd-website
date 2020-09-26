@@ -1,11 +1,15 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
+import SEO from '../components/seo';
 
-export default ({ data }) => {
+function Page({ data }) {
   const pageData = data.allPages.edges[0].node;
+
   return (
     <Layout>
+      <SEO title={pageData.title} />
       <main className="main-content-wrapper">
         <h1 className="page-title">{pageData.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: pageData.body }} />
@@ -13,7 +17,7 @@ export default ({ data }) => {
       <aside className="aside-wrapper">Aside</aside>
     </Layout>
   );
-};
+}
 
 export const query = graphql`
   query($id: String!) {
@@ -29,3 +33,9 @@ export const query = graphql`
     }
   }
 `;
+
+Page.propTypes = {
+  data: PropTypes.object,
+};
+
+export default Page;

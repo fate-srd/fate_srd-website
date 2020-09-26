@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import Aside from '../components/aside';
 import Layout from '../components/layout';
 import Menu from '../components/menu';
+import SEO from '../components/seo';
 
 const FateAcceleratedLP = () => {
   const data = useStaticQuery(graphql`
@@ -48,6 +49,7 @@ const FateAcceleratedLP = () => {
 
   return (
     <Layout aside>
+      <SEO title="Fate Accelerated" />
       <main className="main-content-wrapper main-content-wrapper--with-hero">
         <Img
           fluid={data.hero.childImageSharp.fluid}

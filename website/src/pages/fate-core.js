@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import Aside from '../components/aside';
 import Layout from '../components/layout';
 import Menu from '../components/menu';
+import SEO from '../components/seo';
 
 const FateCoreLP = () => {
   const data = useStaticQuery(graphql`
@@ -48,6 +49,7 @@ const FateCoreLP = () => {
 
   return (
     <Layout aside>
+      <SEO title="Fate Core" />
       <main className="main-content-wrapper main-content-wrapper--with-hero">
         <Img
           fluid={data.hero.childImageSharp.fluid}
@@ -71,7 +73,7 @@ const FateCoreLP = () => {
             up to you. But wherever they go, you can expect a fun storytelling
             experience full of twists…of fate.
           </p>
-          <Menu menuName={`menu-fate-core`} classBase="nav-lp" />
+          <Menu menuName="menu-fate-core" classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">

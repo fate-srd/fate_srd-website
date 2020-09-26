@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import Aside from '../components/aside';
 import Layout from '../components/layout';
 import Menu from '../components/menu';
+import SEO from '../components/seo';
 
 const FateCondensed = () => {
   const data = useStaticQuery(graphql`
@@ -48,6 +49,7 @@ const FateCondensed = () => {
 
   return (
     <Layout aside>
+      <SEO title="Fate Condensed" />
       <main className="main-content-wrapper main-content-wrapper--with-hero">
         {console.log(data)}
         <Img
