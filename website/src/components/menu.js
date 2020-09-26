@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
@@ -49,11 +49,13 @@ function createMenuHierarchy(menuData, menuName) {
 }
 
 function buildLink(link, classBase) {
-  if (!link.external && link.link.url) {
+  console.log('link!');
+  console.log(link);
+  if (!link.external && link.link.uri_alias) {
     return (
       <Link
         activeClassName="active"
-        to={link.link.url}
+        to={link.link.uri_alias}
         className={classBase ? `${classBase}__link` : ''}
       >
         {link.title}
@@ -65,7 +67,7 @@ function buildLink(link, classBase) {
       <Link
         activeClassName="active"
         className={classBase ? `${classBase}__link` : ''}
-        to={link.link.uri.replace('internal:', '')}
+        to={link.link.uri_alias}
       >
         {link.title}
       </Link>
@@ -73,7 +75,7 @@ function buildLink(link, classBase) {
   }
   return (
     <a
-      href={link.link.url}
+      href={link.link.uri_alias}
       className={classBase ? `${classBase}__link external` : 'external'}
     >
       {link.title}
@@ -141,43 +143,65 @@ function generateMenu(menuLinks, menuName, classBase) {
   return menu;
 }
 
-const Menu = ({ menuName, classBase }) => (
-  <StaticQuery
-    query={graphql`
-      query MenuQuery {
-        allMenuLinkContentMenuLinkContent(
-          sort: { order: ASC, fields: weight }
-        ) {
-          edges {
-            node {
-              enabled
-              title
-              expanded
-              external
-              langcode
-              weight
-              link {
-                uri
-                uri_alias
+function Menu({ menuName, classBase }) {
+  useEffect(() => {
+    const context = document;
+
+    const sectionToggleButtons = Array.from(
+      context.querySelectorAll(`.${classBase}__show-menu`)
+    );
+
+    const handleSectionToggleButton = function () {
+      if (this.getAttribute('aria-expanded') === 'true') {
+        this.setAttribute('aria-expanded', 'false');
+      } else {
+        this.setAttribute('aria-expanded', 'true');
+      }
+    };
+
+    sectionToggleButtons.forEach((item) =>
+      item.addEventListener('click', handleSectionToggleButton)
+    );
+  });
+
+  return (
+    <StaticQuery
+      query={graphql`
+        query MenuQuery {
+          allMenuLinkContentMenuLinkContent(
+            sort: { order: ASC, fields: weight }
+          ) {
+            edges {
+              node {
+                enabled
+                title
+                expanded
+                external
+                langcode
+                weight
+                link {
+                  uri
+                  uri_alias
+                }
+                drupal_parent_menu_item
+                bundle
+                drupal_id
+                menu_name
               }
-              drupal_parent_menu_item
-              bundle
-              drupal_id
-              menu_name
             }
           }
         }
-      }
-    `}
-    render={(data) => (
-      <nav className={classBase ? `${classBase}__nav` : menuName}>
-        <ul className={classBase ? `${classBase}__ul` : ''}>
-          {generateMenu(data, menuName, classBase)}
-        </ul>
-      </nav>
-    )}
-  />
-);
+      `}
+      render={(data) => (
+        <nav className={classBase ? `${classBase}__nav` : menuName}>
+          <ul className={classBase ? `${classBase}__ul` : ''}>
+            {generateMenu(data, menuName, classBase)}
+          </ul>
+        </nav>
+      )}
+    />
+  );
+}
 
 Menu.propTypes = {
   menuName: PropTypes.string,
