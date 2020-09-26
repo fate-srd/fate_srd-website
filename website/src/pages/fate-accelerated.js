@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Aside from '../components/aside';
 import Layout from '../components/layout';
+import Menu from '../components/menu';
 
 const FateAcceleratedLP = () => {
   const data = useStaticQuery(graphql`
@@ -55,7 +56,20 @@ const FateAcceleratedLP = () => {
         />
         <div className="main-content--with-hero__content">
           <h1 className="page-title">Fate Accelerated</h1>
-          <p>TKTK</p>
+
+          <p>
+            Fate Accelerated, or FAE, is a condensed version of Fate Core that
+            brings all the flexibility and power of Fate in an easily
+            digestible—and quickly read—package. With FAE, you and your friends
+            can step into the world of your favorite books, movies, and TV or
+            you can create a world of your own. And set up is simple—you can be
+            playing in minutes. Whether you’re new to RPGs or an expert gamer,
+            FAE brings something special to the table.
+          </p>
+
+          <p>Fate Accelerated Edition. Your story—full speed ahead.</p>
+
+          <Menu menuName="menu-fate-accelerated" classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">

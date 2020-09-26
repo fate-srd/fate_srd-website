@@ -1,0 +1,70 @@
+
+Options +FollowSymLinks
+
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  <IfModule mod_headers.c>
+    # Serve brotli compressed JS files if they exist and the client accepts br.
+    RewriteCond %{HTTP:Accept-encoding} br
+    RewriteCond %{REQUEST_FILENAME}\.br -s
+    RewriteRule ^(.*)\.js $1\.js\.br [QSA]
+    RewriteRule \.js\.br$ - [T=application/javascript,E=no-gzip:1]
+
+    <FilesMatch "\.js\.br$">
+      # Serve correct encoding type.
+      Header set Content-Encoding br
+      # Force proxies to cache gzipped & non-gzipped css/js files separately.
+      Header append Vary Accept-Encoding
+    </FilesMatch>
+
+    # Serve gzip compressed JS files if they exist and the client accepts gzip.
+    RewriteCond %{HTTP:Accept-encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}\.gz -s
+    RewriteRule ^(.*)\.js $1\.js\.gz [QSA]
+    RewriteRule \.js\.gz$ - [T=application/javascript,E=no-gzip:1]
+
+    <FilesMatch "\.js\.gz$">
+      # Serve correct encoding type.
+      Header set Content-Encoding gzip
+      # Force proxies to cache gzipped & non-gzipped css/js files separately.
+      Header append Vary Accept-Encoding
+    </FilesMatch>
+  </IfModule>
+</IfModule>
+
+<FilesMatch "^js__[A-Za-z0-9-_]{43}__[A-Za-z0-9-_]{43}__[A-Za-z0-9-_]{43}.js(\.gz|\.br)?">
+  # No mod_headers. Apache module headers is not enabled.
+  <IfModule !mod_headers.c>
+    # No mod_expires. Apache module expires is not enabled.
+    <IfModule !mod_expires.c>
+      # Use ETags.
+      FileETag MTime Size
+    </IfModule>
+  </IfModule>
+
+  # Use Expires Directive if apache module expires is enabled.
+  <IfModule mod_expires.c>
+    # Do not use ETags.
+    FileETag None
+    # Enable expirations.
+    ExpiresActive On
+    # Cache all aggregated js files for 52 weeks after access (A).
+    ExpiresDefault A31449600
+  </IfModule>
+
+  # Use Headers Directive if apache module headers is enabled.
+  <IfModule mod_headers.c>
+    # Do not use etags for cache validation.
+    Header unset ETag
+    # Serve correct content type.
+    Header set Content-Type application/javascript
+    <IfModule !mod_expires.c>
+      # Set a far future Cache-Control header to 52 weeks.
+      Header set Cache-Control "max-age=31449600, no-transform, public, immutable"
+    </IfModule>
+    <IfModule mod_expires.c>
+      Header append Cache-Control "no-transform, public, immutable"
+    </IfModule>
+  </IfModule>
+  ForceType application/javascript
+</FilesMatch>

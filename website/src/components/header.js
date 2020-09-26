@@ -105,29 +105,29 @@ class Header extends React.Component {
                   <dl className="nav-flyout__region">
                     <dt>Fate Books</dt>
                     <dd>
-                      <a href="#1">Atomic Robo</a>
+                      <Link to="/atomic-robo">Atomic Robo</Link>
                     </dd>
                     <dd>
-                      <a href="#1">Venture City</a>
+                      <Link to="/venture-city">Venture City</Link>
                     </dd>
                     <dd>
-                      <a href="#1">War of Ashes</a>
+                      <Link to="/war-of-ashes">War of Ashes</Link>
                     </dd>
                   </dl>
 
                   <dl className="nav-flyout__region">
                     <dt>Worlds of Adventure</dt>
                     <dd>
-                      <a href="#1">Frontier Spirit</a>
+                      <Link to="/frontier-spirit">Frontier Spirit</Link>
                     </dd>
                     <dd>
-                      <a href="#1">Gods and Monsters</a>
+                      <Link to="/gods-and-monsters">Gods and Monsters</Link>
                     </dd>
                     <dd>
-                      <a href="#1">Sails Full of Stars</a>
+                      <Link to="/sails-full-of-stars">Sails Full of Stars</Link>
                     </dd>
                     <dd>
-                      <a href="#1">Three Rocketeers</a>
+                      <Link to="/three-rocketeers">Three Rocketeers</Link>
                     </dd>
                   </dl>
 

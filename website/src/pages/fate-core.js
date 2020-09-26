@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Aside from '../components/aside';
 import Layout from '../components/layout';
+import Menu from '../components/menu';
 
 const FateCoreLP = () => {
   const data = useStaticQuery(graphql`
@@ -70,6 +71,7 @@ const FateCoreLP = () => {
             up to you. But wherever they go, you can expect a fun storytelling
             experience full of twists…of fate.
           </p>
+          <Menu menuName={`menu-fate-core`} classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">

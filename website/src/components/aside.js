@@ -11,9 +11,7 @@ import AuthorList from './aside/AuthorList';
 class Aside extends React.Component {
   componentDidMount() {
     const context = document;
-    /**
-     * Small screen functionality.
-     */
+    
     const navInPage = context.querySelector('.nav-in-page');
     const mobileToggle = context.querySelector('.nav-in-page__mobile-toggle');
     const body = context.querySelector('body');
@@ -24,25 +22,6 @@ class Aside extends React.Component {
     };
 
     mobileToggle.addEventListener('click', handleNavInPage);
-
-    /**
-     * Large screen functionality
-     */
-    const sectionToggleButtons = Array.from(
-      document.querySelectorAll('.nav-in-page__show-menu')
-    );
-
-    const handleSectionToggleButton = function () {
-      if (this.getAttribute('aria-expanded') === 'true') {
-        this.setAttribute('aria-expanded', 'false');
-      } else {
-        this.setAttribute('aria-expanded', 'true');
-      }
-    };
-
-    sectionToggleButtons.forEach((item) =>
-      item.addEventListener('click', handleSectionToggleButton)
-    );
   }
 
   render() {
