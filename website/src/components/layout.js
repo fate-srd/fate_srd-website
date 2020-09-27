@@ -32,7 +32,7 @@ const Layout = ({ children, aside }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  aside: PropTypes.string,
+  aside: PropTypes.bool,
 };
 
 export default Layout;

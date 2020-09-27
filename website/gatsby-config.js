@@ -5,6 +5,7 @@ module.exports = {
     title: `Fate SRD`,
     description: `A friendly, searchable, & bookmarkable home for the Fate Roleplaying Game.`,
     author: `@amazingrando`,
+    sharingImage: `/sharing.jpg`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
