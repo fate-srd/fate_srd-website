@@ -19,27 +19,23 @@ import logo from '../../../fate_srd-frontend/images/logo.svg';
 class Header extends React.Component {
   componentDidMount() {
     const context = document;
-    const mobileToggle = context.querySelector(
+    const mobileToggles = context.querySelectorAll(
       '.site-header__branding__menu-toggle'
     );
     const mainMenu = context.querySelector('.nav-primary');
-    const body = context.querySelector('body');
-    const navInPage = context.querySelector('.nav-in-page');
     const subToggle = context.querySelector('.nav-primary__sub');
     const rulesToggle = context.querySelector('.nav-primary__rules-wrapper');
 
     const handleMainMenu = () => {
       mainMenu.classList.toggle('nav-primary--open');
-      body.classList.toggle('noscroll');
-      mobileToggle.classList.toggle('open');
-      navInPage.classList.toggle('hide');
+      mobileToggles.forEach(toggle => toggle.classList.toggle('open'))
     };
 
     const handleRulesToggle = () => {
       subToggle.classList.toggle('nav-primary__sub--open');
     };
 
-    mobileToggle.addEventListener('click', handleMainMenu);
+    mobileToggles.forEach(toggle => toggle.addEventListener('click', handleMainMenu))
     rulesToggle.addEventListener('click', handleRulesToggle);
   }
 
@@ -52,11 +48,16 @@ class Header extends React.Component {
           </Link>
           <div className="site-header__branding__menu-toggle">
             <FontAwesomeIcon icon={faBars} className="bars" />
-            <FontAwesomeIcon icon={faTimes} className="times" />
           </div>
         </div>
         <div className="site-header__nav">
           <nav className="nav-primary">
+            <div className="site-header__branding site-header__branding--inside">
+              <img src={logo} alt="" className="site-header__logo" />
+              <div className="site-header__branding__menu-toggle">
+                <FontAwesomeIcon icon={faTimes} className="times" />
+              </div>
+            </div>
             <ul className="nav-primary__ul">
               <li className="nav-primary__li has-nav-flyout nav-primary__sub">
                 <a className="nav-primary__link" href="#3">

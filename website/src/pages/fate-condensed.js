@@ -51,7 +51,6 @@ const FateCondensed = () => {
     <Layout aside>
       <SEO title="Fate Condensed" />
       <main className="main-content-wrapper main-content-wrapper--with-hero">
-        {console.log(data)}
         <Img
           fluid={data.hero.childImageSharp.fluid}
           alt=""

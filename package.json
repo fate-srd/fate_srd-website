@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "develop": "yarn workspace website develop",
+    "build": "yarn workspace website build",
     "storybook": "yarn workspace fate_srd-frontend develop",
     "clean": "yarn workspace website gatsby clean",
     "start:backend": "cd ./fate_srd-backend && lando start",

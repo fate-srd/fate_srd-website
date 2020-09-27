@@ -17,7 +17,6 @@ export default ({ data }) => (
       </ul>
       <h2>Articles</h2>
       <ul>
-        {console.log(data)}
         {data.allArticles.nodes.map((item) => (
           <li key={item.path}>
             <Link to={item.path}>{item.title}</Link>
