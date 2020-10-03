@@ -5,7 +5,7 @@ module.exports = {
     title: `Fate SRD`,
     description: `A friendly, searchable, & bookmarkable home for the Fate Roleplaying Game.`,
     author: `@amazingrando`,
-    sharingImage: `/sharing.jpg`
+    sharingImage: `/sharing.jpg`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -82,6 +82,14 @@ module.exports = {
       options: {
         name: `lpHeroes`,
         path: `${__dirname}/src/images/landing-page-heroes/`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        typekit: {
+          id: 'hie3exj',
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

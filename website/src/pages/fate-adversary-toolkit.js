@@ -20,6 +20,7 @@ const FateAdversaryToolkitLP = () => {
             srcSetWebp
             originalImg
             originalName
+            aspectRatio
           }
         }
       }

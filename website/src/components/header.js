@@ -28,14 +28,16 @@ class Header extends React.Component {
 
     const handleMainMenu = () => {
       mainMenu.classList.toggle('nav-primary--open');
-      mobileToggles.forEach(toggle => toggle.classList.toggle('open'))
+      mobileToggles.forEach((toggle) => toggle.classList.toggle('open'));
     };
 
     const handleRulesToggle = () => {
       subToggle.classList.toggle('nav-primary__sub--open');
     };
 
-    mobileToggles.forEach(toggle => toggle.addEventListener('click', handleMainMenu))
+    mobileToggles.forEach((toggle) =>
+      toggle.addEventListener('click', handleMainMenu)
+    );
     rulesToggle.addEventListener('click', handleRulesToggle);
   }
 
@@ -163,13 +165,13 @@ class Header extends React.Component {
                 </a>
               </li>
               <li className="nav-primary__li">
-                <a className="nav-primary__link" href="#1">
+                <Link to="/actual-play" className="nav-primary__link">
                   <FontAwesomeIcon
                     icon={faHeadSideHeadphones}
                     className="nav-primary__link-icon"
                   />
-                  Podcasts &amp; Videos
-                </a>
+                  Actual Play
+                </Link>
               </li>
               <li className="nav-primary__li">
                 <a
@@ -184,13 +186,13 @@ class Header extends React.Component {
                 </a>
               </li>
               <li className="nav-primary__li">
-                <a className="nav-primary__link" href="#1">
+                <Link to="/downloads" className="nav-primary__link">
                   <FontAwesomeIcon
                     icon={faFolderDownload}
                     className="nav-primary__link-icon"
                   />
                   Downloads
-                </a>
+                </Link>
               </li>
               <li className="nav-primary__li nav-primary__li--search">
                 <a className="nav-primary__link" href="#1">
