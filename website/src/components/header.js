@@ -195,13 +195,13 @@ class Header extends React.Component {
                 </Link>
               </li>
               <li className="nav-primary__li nav-primary__li--search">
-                <a className="nav-primary__link" href="#1">
+                <Link className="nav-primary__link" to="/search">
                   <FontAwesomeIcon
                     icon={faSearch}
                     className="nav-primary__link-icon"
                   />
                   Search
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>

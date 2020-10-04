@@ -40,7 +40,7 @@ const Products = () => {
       : '';
 
     return (
-      <li className="product-list__item">
+      <li className="product-list__item" key={title}>
         {publisher}
         <a href={url}>{title}</a>
       </li>
