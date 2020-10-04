@@ -137,32 +137,32 @@ class Header extends React.Component {
                   <dl className="nav-flyout__region">
                     <dt>Fate Codex</dt>
                     <dd>
-                      <a href="#1">Volume 1</a>
+                      <Link to="/fate-codex/fate-codex-volume-1">Volume 1</Link>
                     </dd>
                     <dd>
-                      <a href="#1">Volume 2</a>
+                      <Link to="/fate-codex/fate-codex-volume-2">Volume 2</Link>
                     </dd>
                     <dd>
-                      <a href="#1">Volume 3</a>
+                      <Link to="/fate-codex/fate-codex-volume-3">Volume 3</Link>
                     </dd>
                   </dl>
 
                   <dl className="nav-flyout__region">
                     <dt>Odds &amp; Ends</dt>
                     <dd>
-                      <a href="#1">Odds &amp; Ends</a>
+                      <Link to="/odds-and-ends">Odds &amp; Ends</Link>
                     </dd>
                   </dl>
                 </div>
               </li>
               <li className="nav-primary__li">
-                <a className="nav-primary__link" href="#1">
+                <Link className="nav-primary__link" to="/products">
                   <FontAwesomeIcon
                     icon={faTreasureChest}
                     className="nav-primary__link-icon"
                   />
                   Games &amp; Products
-                </a>
+                </Link>
               </li>
               <li className="nav-primary__li">
                 <Link to="/actual-play" className="nav-primary__link">

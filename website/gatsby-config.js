@@ -6,6 +6,7 @@ module.exports = {
     description: `A friendly, searchable, & bookmarkable home for the Fate Roleplaying Game.`,
     author: `@amazingrando`,
     sharingImage: `/sharing.jpg`,
+    siteUrl: `https://www.fate-srd.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -90,6 +91,17 @@ module.exports = {
         typekit: {
           id: 'hie3exj',
         },
+      },
+    },
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-7197503-2',
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+        defer: false,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

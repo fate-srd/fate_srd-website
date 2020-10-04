@@ -6,12 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/pro-regular-svg-icons';
 import Menu from './menu';
 import WhereToBuy from './aside/whereToBuy';
-import AuthorList from './aside/AuthorList';
+import AuthorList from './aside/authorList';
 
 class Aside extends React.Component {
   componentDidMount() {
     const context = document;
-    
+
     const navInPage = context.querySelector('.nav-in-page');
     const mobileToggle = context.querySelector('.nav-in-page__mobile-toggle');
     const body = context.querySelector('body');
@@ -26,7 +26,11 @@ class Aside extends React.Component {
 
   render() {
     const { ruleBook, authorlist } = this.props;
-    const menu = ruleBook.toLowerCase().split(' ').join('-');
+    let menu = ruleBook.toLowerCase().split(' ').join('-');
+    if (menu === 'odds-and-ends') {
+      menu = 'odds-ends';
+    }
+
     return (
       <nav className="nav-in-page">
         <h1 className="nav-in-page__title nav-in-page__mobile-toggle">
