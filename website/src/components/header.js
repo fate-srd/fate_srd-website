@@ -106,7 +106,7 @@ class Header extends React.Component {
                   </dl>
 
                   <dl className="nav-flyout__region">
-                    <dt>Fate Books</dt>
+                    <dt>Fate World Books</dt>
                     <dd>
                       <Link to="/atomic-robo">Atomic Robo</Link>
                     </dd>
