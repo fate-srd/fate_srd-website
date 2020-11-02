@@ -143,6 +143,7 @@ const Home = () => {
     if (hasImage === false) return;
     return (
       <Img
+        key={title}
         className="core-rules-list__item__image"
         fluid={singleImage(
           `hero--${title.replace(/ /g, '-').replace('&', 'and').toLowerCase()}`
@@ -152,7 +153,7 @@ const Home = () => {
   };
 
   const item = ({ title, desc, url, hasImage = true }) => (
-    <li className="core-rules-list__item">
+    <li className="core-rules-list__item" key={title}>
       <div className="core-rules-list__item__content">
         {bookImage(title, hasImage)}
         <h3>{title}</h3>
@@ -173,12 +174,8 @@ const Home = () => {
       <main className="main-content-wrapper" style={{ paddingBottom: '0' }}>
         <div className="main-content main-content__home">
           <section className="home__section home__section--hero">
-            {/* <Img
-              className="fudge-dice"
-              fixed={data.fudge.edges[0].node.childImageSharp.fixed}
-            /> */}
             <h1 className="page-title">Fate Roleplaying Game</h1>
-            <h2>System Reference Document</h2>
+            <h2>System Reference Document (SRD)</h2>
           </section>
 
           <section className="grid-2up">
@@ -208,13 +205,13 @@ const Home = () => {
             <ul className="core-rules-list">
               <li className="core-rules-list__item core-rules-list__item--space-above">
                 <div className="core-rules-list__item__content">
-                  <div className="core-rules-list__overview core-rules-list__overview--core">
-                    The whole system
-                  </div>
                   <Img
                     className="core-rules-list__item__image"
                     fluid={singleImage('hero--fate-core')}
                   />
+                  <div className="core-rules-list__overview core-rules-list__overview--core">
+                    The whole system
+                  </div>
                   <h3>Fate Core</h3>
                   <p>
                     <strong>
@@ -231,13 +228,13 @@ const Home = () => {
               </li>
               <li className="core-rules-list__item core-rules-list__item--space-above">
                 <div className="core-rules-list__item__content">
-                  <div className="core-rules-list__overview core-rules-list__overview--fae">
-                    Get started quick!
-                  </div>
                   <Img
                     className="core-rules-list__item__image"
                     fluid={singleImage('hero--fate-accelerated')}
                   />
+                  <div className="core-rules-list__overview core-rules-list__overview--fae">
+                    Get started quick!
+                  </div>
                   <h3>Fate Accelerated</h3>
                   <p>
                     <strong>
@@ -258,13 +255,13 @@ const Home = () => {
               </li>
               <li className="core-rules-list__item core-rules-list__item--space-above">
                 <div className="core-rules-list__item__content">
-                  <div className="core-rules-list__overview core-rules-list__overview--condensed">
-                    Compact version of Core
-                  </div>
                   <Img
                     className="core-rules-list__item__image"
                     fluid={singleImage('hero--fate-condensed')}
                   />
+                  <div className="core-rules-list__overview core-rules-list__overview--condensed">
+                    Compact version of Core
+                  </div>
                   <h3>Fate Condensed</h3>
                   <p>
                     <strong>
@@ -287,19 +284,19 @@ const Home = () => {
           </section>
 
           <section className="section__more-fate">
-            <h2>Toolkits</h2>
+            <h2>Toolkit SRDs</h2>
             <ul className="core-rules-list core-rules-list--2up">
               {toolkits.map((v) => item(v))}
             </ul>
           </section>
 
           <section className="section__more-fate section__more-fate--lightBlue">
-            <h2>Fate World Books</h2>
+            <h2>Fate World Book SRDs</h2>
             <ul className="core-rules-list">{fatebooks.map((v) => item(v))}</ul>
           </section>
 
           <section className="section__more-fate">
-            <h2>Worlds of Adventure</h2>
+            <h2>Worlds of Adventure SRDs</h2>
             <ul className="core-rules-list core-rules-list--2up">
               {woa.map((v) => item(v))}
             </ul>
