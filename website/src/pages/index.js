@@ -17,25 +17,6 @@ const Home = () => {
             childImageSharp {
               fixed(base64Width: 10, quality: 90) {
                 base64
-                tracedSVG
-                aspectRatio
-                srcWebp
-                srcSetWebp
-                originalName
-              }
-            }
-          }
-        }
-      }
-      fudge: allFile(filter: { name: { eq: "home-fudge-dice" } }) {
-        edges {
-          node {
-            id
-            name
-            childImageSharp {
-              fixed(base64Width: 10, quality: 90) {
-                base64
-                tracedSVG
                 aspectRatio
                 srcWebp
                 srcSetWebp

@@ -15,7 +15,6 @@ const WarOfAshes = () => {
         childImageSharp {
           fluid(jpegQuality: 90, maxHeight: 400) {
             base64
-            tracedSVG
             srcWebp
             srcSetWebp
             originalImg
