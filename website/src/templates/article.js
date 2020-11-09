@@ -21,6 +21,10 @@ function Article({ data }) {
     return `<h${p1} id="${hash}">${p2}<a href="#${hash}" class="anchor" style="background-image: url(${linkIcon})"></a></h${p1}>`;
   }
   pageContent = pageContent.replace(/<h(\d+)>([^<>]*)<\/h(\d+)>/gi, replacer);
+  pageContent = pageContent.replace(
+    /<h(\d+).*?id=".+".*?>([^<>]*)<\/h(\d+)>/gi,
+    replacer
+  );
 
   const ruleBook = pageData.relationships.tags[0].name;
   const authorlist =
