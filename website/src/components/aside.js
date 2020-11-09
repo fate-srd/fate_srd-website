@@ -11,10 +11,11 @@ import AuthorList from './aside/authorList';
 class Aside extends React.Component {
   componentDidMount() {
     const context = document;
-
     const navInPage = context.querySelector('.nav-in-page');
     const mobileToggle = context.querySelector('.nav-in-page__mobile-toggle');
     const body = context.querySelector('body');
+
+    body.classList.remove('noscroll');
 
     const handleNavInPage = () => {
       navInPage.classList.toggle('nav-in-page--open');
