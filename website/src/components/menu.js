@@ -5,6 +5,44 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/pro-solid-svg-icons';
 
+// https://gomakethings.com/how-to-get-all-parent-elements-with-vanilla-javascript/
+const getParents = function (elem, selector) {
+  // Element.matches() polyfill
+  if (!Element.prototype.matches) {
+    Element.prototype.matches =
+      Element.prototype.matchesSelector ||
+      Element.prototype.mozMatchesSelector ||
+      Element.prototype.msMatchesSelector ||
+      Element.prototype.oMatchesSelector ||
+      Element.prototype.webkitMatchesSelector ||
+      function (s) {
+        const matches = (this.document || this.ownerDocument).querySelectorAll(
+          s
+        );
+        let i = matches.length;
+        while (--i >= 0 && matches.item(i) !== this) {}
+        return i > -1;
+      };
+  }
+
+  // Set up a parent array
+  const parents = [];
+
+  // Push each parent element to the array
+  for (; elem && elem !== document; elem = elem.parentNode) {
+    if (selector) {
+      if (elem.matches(selector)) {
+        parents.push(elem);
+      }
+      continue;
+    }
+    parents.push(elem);
+  }
+
+  // Return our parent array
+  return parents;
+};
+
 function createMenuHierarchy(menuData, menuName) {
   const tree = [];
   const mappedArr = {};
@@ -20,13 +58,11 @@ function createMenuHierarchy(menuData, menuName) {
         arrElem.drupal_parent_menu_item != null &&
         arrElem.drupal_parent_menu_item.includes(arrElem.bundle)
       ) {
-        const stripped_drupal_id = arrElem.drupal_parent_menu_item.replace(
+        const strippedDrupalId = arrElem.drupal_parent_menu_item.replace(
           `${arrElem.bundle}:`,
           ''
         );
-        mappedArr[
-          arrElem.drupal_id
-        ].drupal_parent_menu_item = stripped_drupal_id;
+        mappedArr[arrElem.drupal_id].drupal_parent_menu_item = strippedDrupalId;
       }
       mappedArr[arrElem.drupal_id].children = [];
     }
@@ -94,6 +130,7 @@ function buildMenu(menuArray, classBase) {
           className={classBase ? `${classBase}__li` : ''}
         >
           {buildLink(menuArray[item], classBase)}
+
           <button
             className={classBase ? `${classBase}__show-menu` : 'show-menu'}
             aria-expanded="false"
@@ -159,6 +196,12 @@ function Menu({ menuName, classBase }) {
 
     sectionToggleButtons.forEach((item) =>
       item.addEventListener('click', handleSectionToggleButton)
+    );
+
+    const activePage = document.querySelector('.nav-in-page__link.active');
+    const parents = getParents(activePage, '.nav-in-page__ul--child');
+    parents.map((v) =>
+      v.previousElementSibling.setAttribute('aria-expanded', true)
     );
   });
 

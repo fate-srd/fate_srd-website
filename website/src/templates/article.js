@@ -14,7 +14,6 @@ function Article({ data }) {
       : pageData.body.value;
 
   function replacer(match, p1, p2, p3, offset, string) {
-    console.log(`p2 is ${p2}`);
     const hash = p2
       .replace(/ /g, '-')
       .replace(/[?,:()“”"'’*]/g, '')
