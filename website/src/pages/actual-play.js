@@ -19,6 +19,9 @@ const ActualPlay = () => {
               field_ap_tags {
                 name
               }
+              field_type_of_actual_play {
+                name
+              }
             }
           }
         }
@@ -44,7 +47,11 @@ const ActualPlay = () => {
           {data.allNodeMedia.edges.map((item) => (
             <li key={item.node.title}>
               <a href={item.node.field_link.uri}>{item.node.title}</a> by{' '}
-              <em>{item.node.field_authoring_entity}</em>
+              <em>{item.node.field_authoring_entity}</em>.{' '}
+              {item.node.relationships.field_type_of_actual_play[0].name}.{' '}
+              {item.node.relationships.field_ap_tags.map(
+                (v, i, r) => `${v.name}${r.length - 1 !== i ? ', ' : ''}`
+              )}
             </li>
           ))}
         </ul>
