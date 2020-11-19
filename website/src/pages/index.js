@@ -264,6 +264,18 @@ const Home = () => {
             </ul>
           </section>
 
+          <section className="section__more-fate section__more-fate--playing-online">
+            {/* <Img
+              key="playing online"
+              className="playing-online"
+              fluid={}
+            /> */}
+            {console.log(data.images.edges)}
+            <h2>Playing Fate Online</h2>
+            <p>Get tips and tricks for taking your Fate RPG game online.</p>
+            <Link to="playing-fate-online">Link</Link>
+          </section>
+
           <section className="section__more-fate">
             <h2>Toolkit SRDs</h2>
             <ul className="core-rules-list core-rules-list--2up">
