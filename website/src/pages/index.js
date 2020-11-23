@@ -1,5 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhoneLaptop } from '@fortawesome/pro-regular-svg-icons';
 import Img from 'gatsby-image';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
@@ -265,15 +267,20 @@ const Home = () => {
           </section>
 
           <section className="section__more-fate section__more-fate--playing-online">
-            {/* <Img
+            <div className="content">
+              <h2>
+                <FontAwesomeIcon icon={faPhoneLaptop} /> Playing Fate Online
+              </h2>
+              <p>Get tips and tricks for taking your Fate RPG game online.</p>
+              <Link to="playing-fate-online" className="playing-button">
+                Tips for Playing Fate Online
+              </Link>
+            </div>
+            <Img
               key="playing online"
               className="playing-online"
-              fluid={}
-            /> */}
-            {console.log(data.images.edges)}
-            <h2>Playing Fate Online</h2>
-            <p>Get tips and tricks for taking your Fate RPG game online.</p>
-            <Link to="playing-fate-online">Link</Link>
+              fluid={singleImage('play-online')}
+            />
           </section>
 
           <section className="section__more-fate">
