@@ -1,10 +1,49 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneLaptop } from '@fortawesome/pro-regular-svg-icons';
 import Img from 'gatsby-image';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
+
+const ListItem = (props, key) => {
+  const { title, desc, url, images, hasImage = true } = props;
+  return (
+    <li className="core-rules-list__item" key={key}>
+      <div className="core-rules-list__item__content">
+        <BookImage title={title} hasImage={hasImage} images={images} />
+        <h3>{title}</h3>
+        <p
+          className={!desc ? 'hide' : ''}
+          dangerouslySetInnerHTML={{ __html: desc }}
+        />
+        <Link className="core-rules-list__button" to={url}>
+          Start Reading
+        </Link>
+      </div>
+    </li>
+  );
+};
+
+const singleImage = (imageName, images) => {
+  const haystack = images.filter((value) => value.node.name === imageName);
+  return haystack[0].node.childImageSharp.fluid;
+};
+
+const BookImage = (props) => {
+  const { title, hasImage, images } = props;
+  if (hasImage === false) return;
+  return (
+    <Img
+      className="core-rules-list__item__image"
+      fluid={singleImage(
+        `hero--${title.replace(/ /g, '-').replace('&', 'and').toLowerCase()}`,
+        images
+      )}
+    />
+  );
+};
 
 const Home = () => {
   const data = useStaticQuery(graphql`
@@ -17,12 +56,8 @@ const Home = () => {
             id
             name
             childImageSharp {
-              fixed(base64Width: 10, quality: 90) {
-                base64
-                aspectRatio
-                srcWebp
-                srcSetWebp
-                originalName
+              fluid(base64Width: 10, quality: 90) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -32,11 +67,6 @@ const Home = () => {
   `);
 
   const images = data.images.edges;
-
-  const singleImage = (imageName) => {
-    const haystack = images.filter((value) => value.node.name === imageName);
-    return haystack[0].node.childImageSharp.fixed;
-  };
 
   const toolkits = [
     {
@@ -101,55 +131,26 @@ const Home = () => {
     },
   ];
 
-  const fateCodex = [
-    {
-      title: 'Volume 1',
-      desc: '',
-      url: '/fate-codex/fate-codex-volume-1',
-      hasImage: false,
-    },
-    {
-      title: 'Volume 2',
-      desc: '',
-      url: '/fate-codex/fate-codex-volume-2',
-      hasImage: false,
-    },
-    {
-      title: 'Volume 3',
-      desc: '',
-      url: '/fate-codex/fate-codex-volume-3',
-      hasImage: false,
-    },
-  ];
-
-  const bookImage = (title, hasImage) => {
-    if (hasImage === false) return;
-    return (
-      <Img
-        key={title}
-        className="core-rules-list__item__image"
-        fluid={singleImage(
-          `hero--${title.replace(/ /g, '-').replace('&', 'and').toLowerCase()}`
-        )}
-      />
-    );
-  };
-
-  const item = ({ title, desc, url, hasImage = true }) => (
-    <li className="core-rules-list__item" key={title}>
-      <div className="core-rules-list__item__content">
-        {bookImage(title, hasImage)}
-        <h3>{title}</h3>
-        <p
-          className={!desc ? 'hide' : ''}
-          dangerouslySetInnerHTML={{ __html: desc }}
-        />
-        <Link className="core-rules-list__button" to={url}>
-          Start Reading
-        </Link>
-      </div>
-    </li>
-  );
+  // const fateCodex = [
+  //   {
+  //     title: 'Volume 1',
+  //     desc: '',
+  //     url: '/fate-codex/fate-codex-volume-1',
+  //     hasImage: false,
+  //   },
+  //   {
+  //     title: 'Volume 2',
+  //     desc: '',
+  //     url: '/fate-codex/fate-codex-volume-2',
+  //     hasImage: false,
+  //   },
+  //   {
+  //     title: 'Volume 3',
+  //     desc: '',
+  //     url: '/fate-codex/fate-codex-volume-3',
+  //     hasImage: false,
+  //   },
+  // ];
 
   return (
     <Layout>
@@ -190,7 +191,11 @@ const Home = () => {
                 <div className="core-rules-list__item__content">
                   <Img
                     className="core-rules-list__item__image"
-                    fluid={singleImage('hero--fate-core')}
+                    fluid={singleImage('hero--fate-core', images)}
+                    key={
+                      Date.now() +
+                      Math.floor(Math.random() * Math.floor(500000000))
+                    }
                   />
                   <div className="core-rules-list__overview core-rules-list__overview--core">
                     The whole system
@@ -213,7 +218,11 @@ const Home = () => {
                 <div className="core-rules-list__item__content">
                   <Img
                     className="core-rules-list__item__image"
-                    fluid={singleImage('hero--fate-accelerated')}
+                    fluid={singleImage('hero--fate-accelerated', images)}
+                    key={
+                      Date.now() +
+                      Math.floor(Math.random() * Math.floor(500000000))
+                    }
                   />
                   <div className="core-rules-list__overview core-rules-list__overview--fae">
                     Get started quick!
@@ -240,7 +249,11 @@ const Home = () => {
                 <div className="core-rules-list__item__content">
                   <Img
                     className="core-rules-list__item__image"
-                    fluid={singleImage('hero--fate-condensed')}
+                    fluid={singleImage('hero--fate-condensed', images)}
+                    key={
+                      Date.now() +
+                      Math.floor(Math.random() * Math.floor(500000000))
+                    }
                   />
                   <div className="core-rules-list__overview core-rules-list__overview--condensed">
                     Compact version of Core
@@ -277,34 +290,83 @@ const Home = () => {
               </Link>
             </div>
             <Img
-              key="playing online"
+              key="playing-online"
               className="playing-online"
-              fluid={singleImage('play-online')}
+              fluid={singleImage('play-online', images)}
             />
           </section>
 
           <section className="section__more-fate">
             <h2>Toolkit SRDs</h2>
             <ul className="core-rules-list core-rules-list--2up">
-              {toolkits.map((v) => item(v))}
+              {toolkits.map((v) => (
+                <ListItem
+                  key={
+                    Date.now() +
+                    Math.floor(Math.random() * Math.floor(500000000))
+                  }
+                  title={v.title}
+                  desc={v.desc}
+                  url={v.url}
+                  images={images}
+                />
+              ))}
             </ul>
           </section>
 
           <section className="section__more-fate section__more-fate--lightBlue">
             <h2>Fate World Book SRDs</h2>
-            <ul className="core-rules-list">{fatebooks.map((v) => item(v))}</ul>
+            <ul className="core-rules-list">
+              {fatebooks.map((v) => (
+                <ListItem
+                  key={
+                    Date.now() +
+                    Math.floor(Math.random() * Math.floor(500000000))
+                  }
+                  title={v.title}
+                  desc={v.desc}
+                  url={v.url}
+                  images={images}
+                />
+              ))}
+            </ul>
           </section>
 
           <section className="section__more-fate">
             <h2>Worlds of Adventure SRDs</h2>
             <ul className="core-rules-list core-rules-list--2up">
-              {woa.map((v) => item(v))}
+              {woa.map((v) => (
+                <ListItem
+                  key={
+                    Date.now() +
+                    Math.floor(Math.random() * Math.floor(500000000))
+                  }
+                  title={v.title}
+                  desc={v.desc}
+                  url={v.url}
+                  images={images}
+                />
+              ))}
             </ul>
           </section>
         </div>
       </main>
     </Layout>
   );
+};
+
+ListItem.propTypes = {
+  title: PropTypes.string,
+  desc: PropTypes.string,
+  url: PropTypes.string,
+  hasImage: PropTypes.bool,
+  images: PropTypes.any,
+};
+
+BookImage.propTypes = {
+  title: PropTypes.string,
+  hasImage: PropTypes.bool,
+  images: PropTypes.any,
 };
 
 export default Home;
