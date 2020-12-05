@@ -55,12 +55,12 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: ` http://fate-srd-backend.lndo.site/`,
+        baseUrl: `http://backend.fate-srd.com/`,
         apiBase: `api`, // optional, defaults to `jsonapi`
-        // basicAuth: {
-        //   username: process.env.BASIC_AUTH_USERNAME,
-        //   password: process.env.BASIC_AUTH_PASSWORD,
-        // },
+        basicAuth: {
+          username: process.env.BASIC_AUTH_USERNAME,
+          password: process.env.BASIC_AUTH_PASSWORD,
+        },
       },
     },
     `gatsby-plugin-sass`,
