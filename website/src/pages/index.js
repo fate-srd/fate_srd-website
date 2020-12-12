@@ -38,7 +38,11 @@ const BookImage = (props) => {
     <Img
       className="core-rules-list__item__image"
       fluid={singleImage(
-        `hero--${title.replace(/ /g, '-').replace('&', 'and').toLowerCase()}`,
+        `hero--${title
+          .replace(/ /g, '-')
+          .replace('&', 'and')
+          .replace('#', '')
+          .toLowerCase()}`,
         images
       )}
     />
@@ -101,6 +105,11 @@ const Home = () => {
       desc:
         'Head off to adventure in a world where the inhabitants might look cute and cuddly but often carry pointy objects with which <strong>they might just decide to stab you</strong>.',
       url: '/war-of-ashes',
+    },
+    {
+      title: '#iHunt',
+      desc: `<strong>#iHunt is a story telling game about killing monsters in the gig economy.</strong> A gig app called #iHunt offers them more money than you have ever made to hit the streets and kill monsters that goes bump in the night. `,
+      url: '/ihunt',
     },
   ];
 
@@ -316,7 +325,7 @@ const Home = () => {
 
           <section className="section__more-fate section__more-fate--lightBlue">
             <h2>Fate World Book SRDs</h2>
-            <ul className="core-rules-list">
+            <ul className="core-rules-list core-rules-list--2up">
               {fatebooks.map((v) => (
                 <ListItem
                   key={

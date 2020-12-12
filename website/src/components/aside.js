@@ -28,6 +28,7 @@ class Aside extends React.Component {
   render() {
     const { ruleBook, authorlist } = this.props;
     let menu = ruleBook.toLowerCase().split(' ').join('-');
+    menu = menu.replace('#', '');
     if (menu === 'odds-and-ends') {
       menu = 'odds-ends';
     }

@@ -1,5 +1,4 @@
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import logo from '../../../fate_srd-frontend/images/logo.svg';
@@ -104,15 +103,22 @@ const Footer = () => (
             </a>
             .
           </p>
+          <p>
+            Content from <a href="https://ihunt.fun">#iHunt</a> is licensed
+            under a{' '}
+            <a
+              rel="license"
+              href="http://creativecommons.org/licenses/by-sa/3.0/us/"
+            >
+              Creative Commons Attribution-ShareAlike 3.0 United States License
+            </a>
+            .
+          </p>
         </div>
       </div>
     </div>
   </footer>
 );
-
-Footer.propTypes = {
-  siteTitle: PropTypes.string,
-};
 
 Footer.defaultProps = {
   siteTitle: ``,

@@ -116,6 +116,9 @@ class Header extends React.Component {
                     <dd>
                       <Link to="/war-of-ashes">War of Ashes</Link>
                     </dd>
+                    <dd>
+                      <Link to="/ihunt">#iHunt</Link>
+                    </dd>
                   </dl>
 
                   <dl className="nav-flyout__region">
