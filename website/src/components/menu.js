@@ -68,7 +68,9 @@ function createMenuHierarchy(menuData, menuName) {
     }
   }
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const id in mappedArr) {
+    // eslint-disable-next-line no-prototype-builtins
     if (mappedArr.hasOwnProperty(id)) {
       mappedElem = mappedArr[id];
       // If the element is not at the root level, add it to its parent array of children.
@@ -122,6 +124,7 @@ function buildMenu(menuArray, classBase) {
     return;
   }
   const menu = [];
+  // eslint-disable-next-line no-restricted-syntax
   for (const item in menuArray) {
     if (menuArray[item].children.length !== 0) {
       menu.push(
@@ -134,6 +137,7 @@ function buildMenu(menuArray, classBase) {
           <button
             className={classBase ? `${classBase}__show-menu` : 'show-menu'}
             aria-expanded="false"
+            type="button"
           >
             <span className="closed">
               <FontAwesomeIcon icon={faPlus} />
@@ -187,9 +191,12 @@ function Menu({ menuName, classBase }) {
     );
 
     const handleSectionToggleButton = function () {
+      // eslint-disable-next-line react/no-this-in-sfc
       if (this.getAttribute('aria-expanded') === 'true') {
+        // eslint-disable-next-line react/no-this-in-sfc
         this.setAttribute('aria-expanded', 'false');
       } else {
+        // eslint-disable-next-line react/no-this-in-sfc
         this.setAttribute('aria-expanded', 'true');
       }
     };
