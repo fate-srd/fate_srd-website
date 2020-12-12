@@ -13,6 +13,7 @@ import {
   faPlus,
   faMinus,
 } from '@fortawesome/pro-regular-svg-icons';
+import PatreonBar from './PatreonBar';
 
 import logo from '../../../fate_srd-frontend/images/logo.svg';
 
@@ -209,6 +210,7 @@ class Header extends React.Component {
             </ul>
           </nav>
         </div>
+        <PatreonBar />
       </header>
     );
   }

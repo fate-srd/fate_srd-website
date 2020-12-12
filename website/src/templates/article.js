@@ -64,6 +64,7 @@ function Article({ data }) {
     </Layout>
   );
 }
+
 export const query = graphql`
   query($id: String!) {
     allArticles(filter: { id: { eq: $id } }) {
