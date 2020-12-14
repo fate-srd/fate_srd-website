@@ -57,6 +57,59 @@ const Footer = () => (
             </a>
           </li>
         </ul>
+
+        <ul className="site-footer__ul">
+          <li className="site-footer__li">
+            <a
+              href="https://fate.1d12monos.com/"
+              className="site-footer__link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Fate SRD in Spanish
+            </a>
+          </li>
+          <li className="site-footer__li">
+            <a
+              href="https://srd.faterpg.de/"
+              className="site-footer__link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Fate SRD in German
+            </a>
+          </li>
+          <li className="site-footer__li">
+            <a
+              href="https://www.fateitalia.it/"
+              className="site-footer__link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Fate SRD in Italian
+            </a>
+          </li>
+          <li className="site-footer__li">
+            <a
+              href="https://fate-srd.fr/"
+              className="site-footer__link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Fate SRD in French
+            </a>
+          </li>
+          <li className="site-footer__li">
+            <a
+              href="https://fatesrdbrasil.gitlab.io/fate-srd-brasil/"
+              className="site-footer__link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Fate SRD in Brazilian Portuguese
+            </a>
+          </li>
+        </ul>
       </nav>
       <div className="site-footer__legal">
         <div className="content">
