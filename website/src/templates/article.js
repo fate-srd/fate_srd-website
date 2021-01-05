@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
-import linkIcon from 'fate_srd-frontend/images/icons/link-solid.svg';
+import linkIcon from '../../../fate_srd-frontend/images/icons/link-solid.svg';
 import Layout from '../components/layout';
 import Aside from '../components/aside';
 import SEO from '../components/seo';

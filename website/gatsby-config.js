@@ -102,13 +102,13 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-umami`,
       options: {
-        trackingId: 'UA-7197503-2',
-        head: false,
-        anonymize: true,
-        respectDNT: true,
-        defer: false,
+        websiteId: '5fb1d027-2d7b-4a98-a446-9d7f92c7c2f1',
+        srcUrl: 'https://umami-amazingrando.herokuapp.com/umami.js',
+        includeInDevelopment: false,
+        autoTrack: true,
+        respectDoNotTrack: true,
       },
     },
     {
