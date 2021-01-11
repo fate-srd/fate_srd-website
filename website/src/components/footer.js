@@ -4,6 +4,19 @@ import React from 'react';
 import logo from '../../../fate_srd-frontend/images/logo.svg';
 import patreon from '../../../fate_srd-frontend/images/become_a_patron_button@2x.png';
 
+const fateTranslations = {
+  'Fate SRD in Spanish': 'https://fate.1d12monos.com/',
+  'Fate SRD in German': 'https://srd.faterpg.de/',
+  'Fate SRD in Italian': 'https://www.fateitalia.it/',
+  'Fate SRD in French': 'https://fate-srd.fr/',
+  'Fate SRD in Brazilian Portuguese':
+    'https://fatesrdbrasil.gitlab.io/fate-srd-brasil/',
+  'Fate SRD in Korean 1': 'https://sites.google.com/site/fatecorekr/home',
+  'Fate SRD in Korean 2':
+    'http://ko.trpgkr.wikidok.net/wp-d/5d1db45ca4a7f1be66b95a44/View',
+  'Fate SRD in Japanese': 'https://w.atwiki.jp/fatesrdj/',
+};
+
 const Footer = () => (
   <footer className="site-footer">
     <div className="site-footer__content">
@@ -59,56 +72,18 @@ const Footer = () => (
         </ul>
 
         <ul className="site-footer__ul">
-          <li className="site-footer__li">
-            <a
-              href="https://fate.1d12monos.com/"
-              className="site-footer__link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Fate SRD in Spanish
-            </a>
-          </li>
-          <li className="site-footer__li">
-            <a
-              href="https://srd.faterpg.de/"
-              className="site-footer__link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Fate SRD in German
-            </a>
-          </li>
-          <li className="site-footer__li">
-            <a
-              href="https://www.fateitalia.it/"
-              className="site-footer__link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Fate SRD in Italian
-            </a>
-          </li>
-          <li className="site-footer__li">
-            <a
-              href="https://fate-srd.fr/"
-              className="site-footer__link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Fate SRD in French
-            </a>
-          </li>
-          <li className="site-footer__li">
-            <a
-              href="https://fatesrdbrasil.gitlab.io/fate-srd-brasil/"
-              className="site-footer__link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Fate SRD in Brazilian Portuguese
-            </a>
-          </li>
+          {Object.entries(fateTranslations).map(([key, value]) => (
+            <li className="site-footer__li" key={key}>
+              <a
+                href={value}
+                className="site-footer__link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {key}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
       <div className="site-footer__legal">
