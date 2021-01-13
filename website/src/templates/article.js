@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { graphql } from 'gatsby';
 import linkIcon from '../../../fate_srd-frontend/images/icons/link-solid.svg';
 import Layout from '../components/layout';
@@ -7,10 +7,12 @@ import Aside from '../components/aside';
 import SEO from '../components/seo';
 
 function Article({ data }) {
+  const [toc, setToc] = useState([{ text: 'testText', id: 'id-test' }]);
+
   useEffect(() => {
-    const h2 = document.querySelectorAll('.main-content-wrapper h2');
-    const h3 = document.querySelectorAll('.main-content-wrapper h3');
-    const h4 = document.querySelectorAll('.main-content-wrapper h4');
+    const headers = document.querySelectorAll(
+      '.main-content-wrapper h2, .main-content-wrapper h3, .main-content-wrapper h4'
+    );
 
     const processAnchorLinks = (header) => {
       if (header.id !== '') {
@@ -19,15 +21,28 @@ function Article({ data }) {
       }
     };
 
-    h2.forEach((header) => {
+    headers.forEach((header) => {
       processAnchorLinks(header);
     });
-    h3.forEach((header) => {
-      processAnchorLinks(header);
-    });
-    h4.forEach((header) => {
-      processAnchorLinks(header);
-    });
+
+    const tocContent = () => {
+      const content = [];
+      for (const item of headers) {
+        console.log(item.tagName);
+        if (item.tagName === 'H2') {
+          content.push({
+            text: item.textContent,
+            id: item.id,
+          });
+        }
+      }
+      if (content.length <= 1) {
+        document.querySelector('.main-content-wrapper .toc').remove();
+      }
+      return content;
+    };
+
+    setToc(tocContent());
   }, []);
 
   const pageData = data.allArticles.nodes[0];
@@ -41,9 +56,11 @@ function Article({ data }) {
       .replace(/ /g, '-')
       .replace(/[?,:()“”"'’*]/g, '')
       .replace(/^-/, '')
+      .replace(/&amp;/, '')
       .toLowerCase();
     return `<h${p1} id="${hash}">${p2}</h${p1}>`;
   }
+
   pageContent = pageContent.replace(/<h(\d+)>([^<>]*)<\/h(\d+)>/gi, replacer);
 
   const ruleBook = pageData.relationships.tags[0].name;
@@ -56,6 +73,16 @@ function Article({ data }) {
       <main className="main-content-wrapper">
         <p className="rules-section">{ruleBook}</p>
         <h1 className="page-title">{pageData.title}</h1>
+        <div className="toc">
+          <h5 className="toc__header">Table of Contents</h5>
+          <ul className="toc__ul">
+            {toc.map((item) => (
+              <li>
+                <a href={`#${item.id}`}>{item.text}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
         <div dangerouslySetInnerHTML={{ __html: pageContent }} />
       </main>
       <aside className="aside-wrapper">
