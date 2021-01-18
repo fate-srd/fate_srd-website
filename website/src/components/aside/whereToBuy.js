@@ -146,7 +146,7 @@ const WhereToBuy = (props) => {
 
 ListItem.propTypes = {
   url: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.object,
 };
 
 WhereToBuy.propTypes = {

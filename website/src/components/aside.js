@@ -23,6 +23,27 @@ class Aside extends React.Component {
     };
 
     mobileToggle.addEventListener('click', handleNavInPage);
+
+    const sectionToggleButtons = Array.from(
+      context.querySelectorAll(`.nav-in-page__show-menu`)
+    );
+
+    const handleSectionToggleButton = function () {
+      console.log('clicked');
+      console.log(this);
+      // eslint-disable-next-line react/no-this-in-sfc
+      if (this.getAttribute('aria-expanded') === 'true') {
+        // eslint-disable-next-line react/no-this-in-sfc
+        this.setAttribute('aria-expanded', 'false');
+      } else {
+        // eslint-disable-next-line react/no-this-in-sfc
+        this.setAttribute('aria-expanded', 'true');
+      }
+    };
+
+    sectionToggleButtons.forEach((item) =>
+      item.addEventListener('click', handleSectionToggleButton)
+    );
   }
 
   render() {

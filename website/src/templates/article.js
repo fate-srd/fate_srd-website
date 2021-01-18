@@ -28,7 +28,6 @@ function Article({ data }) {
     const tocContent = () => {
       const content = [];
       for (const item of headers) {
-        console.log(item.tagName);
         if (item.tagName === 'H2') {
           content.push({
             text: item.textContent,
@@ -77,7 +76,7 @@ function Article({ data }) {
           <h5 className="toc__header">Table of Contents</h5>
           <ul className="toc__ul">
             {toc.map((item) => (
-              <li>
+              <li key={item.id}>
                 <a href={`#${item.id}`}>{item.text}</a>
               </li>
             ))}

@@ -184,27 +184,6 @@ function generateMenu(menuLinks, menuName, classBase) {
 
 function Menu({ menuName, classBase }) {
   useEffect(() => {
-    const context = document;
-
-    const sectionToggleButtons = Array.from(
-      context.querySelectorAll(`.${classBase}__show-menu`)
-    );
-
-    const handleSectionToggleButton = function () {
-      // eslint-disable-next-line react/no-this-in-sfc
-      if (this.getAttribute('aria-expanded') === 'true') {
-        // eslint-disable-next-line react/no-this-in-sfc
-        this.setAttribute('aria-expanded', 'false');
-      } else {
-        // eslint-disable-next-line react/no-this-in-sfc
-        this.setAttribute('aria-expanded', 'true');
-      }
-    };
-
-    sectionToggleButtons.forEach((item) =>
-      item.addEventListener('click', handleSectionToggleButton)
-    );
-
     const activePage = document.querySelector('.nav-in-page__link.active');
     const parents = getParents(activePage, '.nav-in-page__ul--child');
     parents.map((v) =>
