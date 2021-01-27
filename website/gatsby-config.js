@@ -55,7 +55,7 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: `http://backend.fate-srd.com/`,
+        baseUrl: `https://backend.fate-srd.com/`,
         apiBase: `api`, // optional, defaults to `jsonapi`
         basicAuth: {
           username: process.env.BASIC_AUTH_USERNAME,
