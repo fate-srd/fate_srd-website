@@ -22,16 +22,24 @@ const Footer = () => (
     <div className="site-footer__content">
       <div className="site-footer__logo-wrapper">
         <Link to="/" className="site-footer__link">
-          <img src={logo} alt="" className="site-footer__logo" />
+          <img src={logo} alt="Fate SRD Logo" className="site-footer__logo" />
         </Link>
       </div>
       <a
         href="https://www.patreon.com/fate_srd"
         className="site-footer__patreon"
       >
-        <img src={patreon} alt="" className="site-footer__patreon-img" />
+        <img
+          src={patreon}
+          alt="Become a Patron of the Fate SRD"
+          className="site-footer__patreon-img"
+        />
       </a>
-      <nav className="site-footer__nav">
+      <nav
+        className="site-footer__nav"
+        role="navigation"
+        aria-label="Footer Navigation"
+      >
         <ul className="site-footer__ul">
           <li className="site-footer__li">
             <Link to="/about-site" className="site-footer__link">
@@ -86,7 +94,11 @@ const Footer = () => (
           ))}
         </ul>
       </nav>
-      <div className="site-footer__legal">
+      <div
+        className="site-footer__legal"
+        aria-label="Legal Text"
+        role="contentinfo"
+      >
         <div className="content">
           <p>
             This site is copyright 2013–{new Date().getFullYear()}&nbsp;

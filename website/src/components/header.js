@@ -47,16 +47,24 @@ class Header extends React.Component {
       <header className="site-header">
         <div className="site-header__branding">
           <Link to="/">
-            <img src={logo} alt="" className="site-header__logo" />
+            <img src={logo} alt="Fate SRD Logo" className="site-header__logo" />
           </Link>
           <div className="site-header__branding__menu-toggle">
             <FontAwesomeIcon icon={faBars} className="bars" />
           </div>
         </div>
         <div className="site-header__nav">
-          <nav className="nav-primary">
+          <nav
+            className="nav-primary"
+            role="navigation"
+            aria-label="Primary Navigation"
+          >
             <div className="site-header__branding site-header__branding--inside">
-              <img src={logo} alt="" className="site-header__logo" />
+              <img
+                src={logo}
+                alt="Fate SRD Logo"
+                className="site-header__logo"
+              />
               <div className="site-header__branding__menu-toggle">
                 <FontAwesomeIcon icon={faTimes} className="times" />
               </div>
@@ -199,7 +207,7 @@ class Header extends React.Component {
                 </Link>
               </li>
               <li className="nav-primary__li nav-primary__li--search">
-                <Link className="nav-primary__link" to="/search">
+                <Link className="nav-primary__link" to="/search" role="search">
                   <FontAwesomeIcon
                     icon={faSearch}
                     className="nav-primary__link-icon"

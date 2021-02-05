@@ -182,7 +182,7 @@ function generateMenu(menuLinks, menuName, classBase) {
   return menu;
 }
 
-function Menu({ menuName, classBase }) {
+function Menu({ menuName, classBase, label }) {
   useEffect(() => {
     const activePage = document.querySelector('.nav-in-page__link.active');
     const parents = getParents(activePage, '.nav-in-page__ul--child');
@@ -220,7 +220,11 @@ function Menu({ menuName, classBase }) {
         }
       `}
       render={(data) => (
-        <nav className={classBase ? `${classBase}__nav` : menuName}>
+        <nav
+          className={classBase ? `${classBase}__nav` : menuName}
+          aria-label={`${label} Menu`}
+          role="navigation"
+        >
           <ul className={classBase ? `${classBase}__ul` : ''}>
             {generateMenu(data, menuName, classBase)}
           </ul>
@@ -233,6 +237,7 @@ function Menu({ menuName, classBase }) {
 Menu.propTypes = {
   menuName: PropTypes.string,
   classBase: PropTypes.string,
+  label: PropTypes.string,
 };
 
 Menu.defaultProps = {

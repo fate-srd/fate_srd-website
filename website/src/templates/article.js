@@ -69,7 +69,7 @@ function Article({ data }) {
   return (
     <Layout aside>
       <SEO title={pageData.title} />
-      <main className="main-content-wrapper">
+      <main className="main-content-wrapper" role="main">
         <p className="rules-section">{ruleBook}</p>
         <h1 className="page-title">{pageData.title}</h1>
         <div className="toc">

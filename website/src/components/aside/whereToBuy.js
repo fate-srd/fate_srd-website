@@ -3,13 +3,16 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-const ListItem = ({ url, image }) => (
+const storeAltText = {
+  direct: 'Buy Directly from the Publisher',
+  dtr: 'Buy from DriveThruRPG',
+  itch: 'Buy from Itch.io',
+};
+
+const ListItem = ({ url, image, altText }) => (
   <li className="nav-in-page__about__li">
     <a href={url} className="nav-in-page__about__link">
-      <Img
-        fixed={image.childImageSharp.fixed}
-        alt="Evil Hat DriveThruRPG Store"
-      />
+      <Img fixed={image.childImageSharp.fixed} alt={altText} />
     </a>
   </li>
 );
@@ -137,7 +140,12 @@ const WhereToBuy = (props) => {
       <h2 className="nav-in-page__about__header">Where to Buy</h2>
       <ul className="nav-in-page__about__ul">
         {Object.entries(books[value]).map(([key, v]) => (
-          <ListItem key={v} url={v} image={buyImages[key]} />
+          <ListItem
+            key={v}
+            url={v}
+            image={buyImages[key]}
+            altText={storeAltText[key]}
+          />
         ))}
       </ul>
     </section>
@@ -147,6 +155,7 @@ const WhereToBuy = (props) => {
 ListItem.propTypes = {
   url: PropTypes.string,
   image: PropTypes.object,
+  altText: PropTypes.string,
 };
 
 WhereToBuy.propTypes = {

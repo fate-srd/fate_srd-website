@@ -64,7 +64,11 @@ class Aside extends React.Component {
           {ruleBook}
         </h1>
         <div className="nav-in-page__content">
-          <Menu menuName={`menu-${menu}`} classBase="nav-in-page" />
+          <Menu
+            menuName={`menu-${menu}`}
+            classBase="nav-in-page"
+            label={ruleBook}
+          />
           <div className="nav-in-page__about">
             <StaticQuery
               query={graphql`
@@ -96,6 +100,7 @@ class Aside extends React.Component {
                   <Img
                     fixed={image.node.childImageSharp.fixed}
                     className="nav-in-page__about__image"
+                    alt={`${ruleBook} Cover`}
                   />
                 );
               }}
