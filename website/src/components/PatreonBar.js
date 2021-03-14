@@ -48,7 +48,7 @@ const PatreonBar = () => {
           target="_blank"
           rel="noreferrer"
         >
-          Become a supporting member today
+          Become a $1 supporting member
         </a>
         <button className="patreon-bar__close" type="button">
           Close for 30 days
