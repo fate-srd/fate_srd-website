@@ -7,7 +7,7 @@ import {
   faComments,
   faHeadSideHeadphones,
   faSearch,
-  faFolderDownload,
+  faSparkles,
   faBars,
   faTimes,
   faPlus,
@@ -24,22 +24,26 @@ class Header extends React.Component {
       '.site-header__branding__menu-toggle'
     );
     const mainMenu = context.querySelector('.nav-primary');
-    const subToggle = context.querySelector('.nav-primary__sub');
-    const rulesToggle = context.querySelector('.nav-primary__rules-wrapper');
+    const rulesToggle = context.querySelectorAll('.nav-primary__toggle');
+    console.log(rulesToggle);
 
     const handleMainMenu = () => {
       mainMenu.classList.toggle('nav-primary--open');
       mobileToggles.forEach((toggle) => toggle.classList.toggle('open'));
     };
 
-    const handleRulesToggle = () => {
-      subToggle.classList.toggle('nav-primary__sub--open');
-    };
+    function handleRulesToggle() {
+      const { target } = this.dataset;
+      const targetID = context.getElementById(target);
+      targetID.classList.toggle('open');
+    }
 
     mobileToggles.forEach((toggle) =>
       toggle.addEventListener('click', handleMainMenu)
     );
-    rulesToggle.addEventListener('click', handleRulesToggle);
+    rulesToggle.forEach((toggle) =>
+      toggle.addEventListener('click', handleRulesToggle)
+    );
   }
 
   render() {
@@ -70,8 +74,15 @@ class Header extends React.Component {
               </div>
             </div>
             <ul className="nav-primary__ul">
-              <li className="nav-primary__li has-nav-flyout nav-primary__sub">
-                <a className="nav-primary__link" href="#3">
+              <li
+                className="nav-primary__li has-nav-flyout nav-primary__sub"
+                id="flyout-rules"
+              >
+                <button
+                  type="button"
+                  className="nav-primary__link nav-primary__toggle"
+                  data-target="flyout-rules"
+                >
                   <FontAwesomeIcon
                     icon={faBook}
                     className="nav-primary__link-icon"
@@ -87,7 +98,7 @@ class Header extends React.Component {
                       className="nav-primary__sub__mobile-toggle minus"
                     />
                   </span>
-                </a>
+                </button>
                 <div className="nav-flyout">
                   <dl className="nav-flyout__region">
                     <dt>Core Rules</dt>
@@ -167,14 +178,42 @@ class Header extends React.Component {
                   </dl>
                 </div>
               </li>
-              <li className="nav-primary__li">
-                <Link className="nav-primary__link" to="/products">
+              <li
+                className="nav-primary__li has-nav-flyout nav-primary__sub"
+                id="flyout-extras"
+              >
+                <button
+                  type="button"
+                  className="nav-primary__link nav-primary__toggle"
+                  data-target="flyout-extras"
+                >
                   <FontAwesomeIcon
-                    icon={faTreasureChest}
+                    icon={faSparkles}
                     className="nav-primary__link-icon"
                   />
-                  Games &amp; Products
-                </Link>
+                  <span className="nav-primary__rules-wrapper">
+                    Extras
+                    <FontAwesomeIcon
+                      icon={faPlus}
+                      className="nav-primary__sub__mobile-toggle plus"
+                    />
+                    <FontAwesomeIcon
+                      icon={faMinus}
+                      className="nav-primary__sub__mobile-toggle minus"
+                    />
+                  </span>
+                </button>
+                <div className="nav-flyout nav-flyout--simple">
+                  <dl className="nav-flyout__region nav-flyout__region--simple">
+                    <dt>More Fate Stuff for You</dt>
+                    <dd>
+                      <Link to="/products">Games &amp; Products</Link>
+                    </dd>
+                    <dd>
+                      <Link to="/downloads">Downloads</Link>
+                    </dd>
+                  </dl>
+                </div>
               </li>
               <li className="nav-primary__li">
                 <Link to="/actual-play" className="nav-primary__link">
@@ -196,15 +235,6 @@ class Header extends React.Component {
                   />
                   Community
                 </a>
-              </li>
-              <li className="nav-primary__li">
-                <Link to="/downloads" className="nav-primary__link">
-                  <FontAwesomeIcon
-                    icon={faFolderDownload}
-                    className="nav-primary__link-icon"
-                  />
-                  Downloads
-                </Link>
               </li>
               <li className="nav-primary__li nav-primary__li--search">
                 <Link className="nav-primary__link" to="/search" role="search">
