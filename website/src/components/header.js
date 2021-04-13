@@ -3,7 +3,6 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBook,
-  faTreasureChest,
   faComments,
   faHeadSideHeadphones,
   faSearch,
@@ -13,6 +12,12 @@ import {
   faPlus,
   faMinus,
 } from '@fortawesome/pro-regular-svg-icons';
+import {
+  faFacebook,
+  faDiscord,
+  faDiscourse,
+  faReddit,
+} from '@fortawesome/free-brands-svg-icons';
 import PatreonBar from './PatreonBar';
 
 import logo from '../../../fate_srd-frontend/images/logo.svg';
@@ -224,17 +229,64 @@ class Header extends React.Component {
                   Actual Play
                 </Link>
               </li>
-              <li className="nav-primary__li">
-                <a
-                  className="nav-primary__link"
-                  href="https://community.fate-srd.com/"
+
+              <li
+                className="nav-primary__li has-nav-flyout nav-primary__sub"
+                id="flyout-extras"
+              >
+                <button
+                  type="button"
+                  className="nav-primary__link nav-primary__toggle"
+                  data-target="flyout-extras"
                 >
                   <FontAwesomeIcon
                     icon={faComments}
                     className="nav-primary__link-icon"
                   />
-                  Community
-                </a>
+                  <span className="nav-primary__rules-wrapper">
+                    Communities
+                    <FontAwesomeIcon
+                      icon={faPlus}
+                      className="nav-primary__sub__mobile-toggle plus"
+                    />
+                    <FontAwesomeIcon
+                      icon={faMinus}
+                      className="nav-primary__sub__mobile-toggle minus"
+                    />
+                  </span>
+                </button>
+                <div className="nav-flyout nav-flyout--simple">
+                  <dl className="nav-flyout__region nav-flyout__region--simple">
+                    <dt>Discuss Fate Around the Web</dt>
+                    <dd>
+                      <a href="https://community.fate-srd.com/">
+                        <FontAwesomeIcon icon={faDiscourse} /> Fate SRD
+                        Community
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="https://discord.gg/CeXKx8NGYU">
+                        <FontAwesomeIcon icon={faDiscord} /> Fate Tabletop RPGs
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="https://www.reddit.com/r/FATErpg/">
+                        <FontAwesomeIcon icon={faReddit} /> FATErpg Reddit
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="https://www.facebook.com/groups/faterpg/">
+                        <FontAwesomeIcon icon={faFacebook} /> Fate Core /
+                        Accelerated RPG
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="https://www.facebook.com/groups/FateCom/">
+                        <FontAwesomeIcon icon={faFacebook} /> Fate Community
+                      </a>
+                    </dd>
+                  </dl>
+                </div>
               </li>
               <li className="nav-primary__li nav-primary__li--search">
                 <Link className="nav-primary__link" to="/search" role="search">
