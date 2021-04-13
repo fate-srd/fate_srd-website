@@ -232,12 +232,12 @@ class Header extends React.Component {
 
               <li
                 className="nav-primary__li has-nav-flyout nav-primary__sub"
-                id="flyout-extras"
+                id="flyout-communities"
               >
                 <button
                   type="button"
                   className="nav-primary__link nav-primary__toggle"
-                  data-target="flyout-extras"
+                  data-target="flyout-communities"
                 >
                   <FontAwesomeIcon
                     icon={faComments}
