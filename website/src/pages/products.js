@@ -11,15 +11,17 @@ const Products = () => {
       ) {
         edges {
           node {
-            title
-            field_link {
-              uri
-            }
-            field_online
-            field_previous_version_of_fate
             relationships {
               field_publisher {
                 name
+                relationships {
+                  node__fate_books {
+                    title
+                    field_link {
+                      uri
+                    }
+                  }
+                }
               }
             }
           }
@@ -30,21 +32,39 @@ const Products = () => {
 
   const products = data.allNodeFateBooks.edges;
 
-  const publisherRender = (publisher) => <span>{publisher}</span>;
+  const publisherList = [];
 
   const handleProduct = (value) => {
-    const url = value.node.field_link.uri;
-    const { title } = value.node;
-    const publisher = value.node.relationships.field_publisher
-      ? publisherRender(value.node.relationships.field_publisher.name)
-      : '';
+    if (
+      value.node.relationships.field_publisher &&
+      !publisherList.includes(value.node.relationships.field_publisher.name)
+    ) {
+      const publisher = value.node.relationships.field_publisher.name;
+      const listOfProducts =
+        value.node.relationships.field_publisher.relationships.node__fate_books;
+      publisherList.push(value.node.relationships.field_publisher.name);
 
-    return (
-      <li className="product-list__item" key={title}>
-        {publisher}
-        <a href={url}>{title}</a>
-      </li>
-    );
+      return (
+        <div>
+          <h3 key={publisher} id={publisher}>
+            {publisher}
+          </h3>
+          <ul className="full-reset-ul">
+            {listOfProducts
+              .sort(function (a, b) {
+                if (a.title < b.title) return -1;
+                if (a.title > b.title) return 1;
+                return 0;
+              })
+              .map((item) => (
+                <li key={item.title}>
+                  <a href={item.field_link.uri}>{item.title}</a>
+                </li>
+              ))}
+          </ul>
+        </div>
+      );
+    }
   };
 
   return (
