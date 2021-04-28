@@ -69,8 +69,6 @@ const FateAcceleratedLP = () => {
           </p>
 
           <p>Fate Accelerated Edition. Your story—full speed ahead.</p>
-
-          <Menu menuName="menu-fate-accelerated" classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">

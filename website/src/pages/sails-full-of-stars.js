@@ -67,8 +67,6 @@ const SailsFullOfStars = () => {
             dragons swimming through the black void. Fools and madmen push the
             boundaries of alchemy, heedless of the consequences.
           </p>
-
-          <Menu menuName="menu-sails-full-of-stars" classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">

@@ -72,7 +72,6 @@ const FateCoreLP = () => {
             up to you. But wherever they go, you can expect a fun storytelling
             experience full of twists…of fate.
           </p>
-          <Menu menuName="menu-fate-core" classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">

@@ -74,7 +74,6 @@ const FateSystemToolkitLP = () => {
             customizable concepts and optional rules in the Fate System Toolkit
             to take your campaign to the next level.
           </p>
-          <Menu menuName="menu-fate-system-toolkit" classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">

@@ -68,8 +68,6 @@ const WarOfAshes = () => {
             Romanic-style battles and then celebrate your victory with a pint of
             kogg.
           </p>
-
-          <Menu menuName="menu-war-of-ashes" classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">

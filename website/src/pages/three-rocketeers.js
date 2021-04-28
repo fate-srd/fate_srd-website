@@ -68,8 +68,6 @@ const ThreeRocketeers = () => {
             interstellar powers play the game of puppets and shadows. The fate
             of the crown is in your hands.
           </p>
-
-          <Menu menuName="menu-three-rocketeers" classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">

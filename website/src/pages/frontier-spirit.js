@@ -65,8 +65,6 @@ const FrontierSpirit = () => {
             claim-jumpers, outlaw settlers, unpredictable weather...and an alien
             spirit world unused to coexisting with sentient creatures.
           </p>
-
-          <Menu menuName="menu-frontier-spirit" classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">

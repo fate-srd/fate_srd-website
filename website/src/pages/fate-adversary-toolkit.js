@@ -72,7 +72,6 @@ const FateAdversaryToolkitLP = () => {
             table. Learn how to use high quality adversaries to drive your
             stories to completion.
           </p>
-          <Menu menuName="menu-fate-adversary-toolkit" classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">

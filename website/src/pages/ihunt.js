@@ -65,8 +65,6 @@ const IHunt = () => {
             money than they've ever made to hit the streets and kill vampires,
             werewolves, demons, and anything else that goes bump in the night.
           </p>
-
-          <Menu menuName="menu-ihunt" classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">

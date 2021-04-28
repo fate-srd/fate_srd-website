@@ -67,8 +67,6 @@ const GodsAndMonsters = () => {
             single facet of your existence and cross the line from god to
             monster.
           </p>
-
-          <Menu menuName="menu-gods-and-monsters" classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">

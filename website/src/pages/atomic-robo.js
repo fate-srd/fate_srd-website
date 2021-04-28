@@ -70,8 +70,6 @@ const AtomicRobo = () => {
             pulp adventurer—or something stranger still from the hidden corners
             of super-science!
           </p>
-
-          <Menu menuName="menu-atomic-robo" classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">

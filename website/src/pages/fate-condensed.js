@@ -66,8 +66,6 @@ const FateCondensed = () => {
             active play and development. And best of all, it’s 100% compatible
             with every one of our 90+ Fate products already published.
           </p>
-
-          <Menu menuName="menu-fate-condensed" classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">

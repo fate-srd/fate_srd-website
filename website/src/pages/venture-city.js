@@ -68,8 +68,6 @@ const VentureCity = () => {
             compilation, which includes both Venture City Stories and Venture
             City Powers, written by masterminds Brian Engard and Ed Turner.
           </p>
-
-          <Menu menuName="menu-venture-city" classBase="nav-lp" />
         </div>
       </main>
       <aside className="aside-wrapper">
