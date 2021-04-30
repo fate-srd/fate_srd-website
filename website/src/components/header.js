@@ -11,6 +11,7 @@ import {
   faTimes,
   faPlus,
   faMinus,
+  faShoppingCart,
 } from '@fortawesome/pro-regular-svg-icons';
 import {
   faFacebook,
@@ -288,6 +289,17 @@ class Header extends React.Component {
                   </dl>
                 </div>
               </li>
+
+              <li className="nav-primary__li">
+                <Link to="/store" className="nav-primary__link">
+                  <FontAwesomeIcon
+                    icon={faShoppingCart}
+                    className="nav-primary__link-icon"
+                  />
+                  Store
+                </Link>
+              </li>
+
               <li className="nav-primary__li nav-primary__li--search">
                 <Link className="nav-primary__link" to="/search" role="search">
                   <FontAwesomeIcon
