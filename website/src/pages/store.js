@@ -1,57 +1,44 @@
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import dtrImage from '../images/store/store-buy-dtr.png';
-import itchImage from '../images/store/store-buy--itch.png';
 import bohCover from '../images/store/Book of Hanz Cover.png';
+import tableBkg from '../images/store/tim-mossholder-ysDq0fY-bzo-unsplash.jpg';
 import tt from '../images/store/tt.png';
 
 const products = [
   {
     title: 'Book of Hanz',
     description:
-      'Turn Tracker cards are an easy way to track who has (and who hasn’t) taken a turn in your game. These are useful for any RPG system!',
+      'Collected for the first time in paperback, The Book of Hanz unlocks the code to better Fate games than you ever imagined.',
     smallText: '48 page printed book and PDF.',
     image: bohCover,
+    bkgImage: tableBkg,
     buy: [
       {
         label: 'Print & PDF',
         price: '14',
-        type: '',
-      },
-      {
-        label: 'PDF',
-        price: '6',
-        type: 'small',
+        type: 'gumroad',
+        url: 'https://gumroad.com/l/qVWqe',
+        customClasses: 'gumroad-button',
       },
     ],
+    alsoAvailableText: 'PDF available at:',
     alsoAvailable: [
-      'https://www.drivethrurpg.com/product/146133/Turn-Tracker-Initiative-Cards',
-      'https://amazingrando.itch.io/product/146133/Turn-Tracker-Initiative-Cards',
-    ],
-  },
-  {
-    title: 'Turn Tracker Initiative Cards',
-    description:
-      'Turn Tracker cards are an easy way to track who has (and who hasn’t) taken a turn in your game. These are useful for any RPG system!',
-    smallText:
-      '48 page printed book and PDF. Also available as only a PDF for $6.',
-    image: tt,
-    buy: [
-      {
-        label: 'Cards',
-        price: '4',
-        type: '',
-        url:
-          'https://www.drivethrurpg.com/product/146133/Turn-Tracker-Initiative-Cards',
-      },
+      'https://www.drivethrurpg.com/product/350062/Book-of-Hanz',
+      'https://amazingrando.itch.io/book-of-hanz',
     ],
   },
 ];
 
-const Button = ({ label, url, price, type }) => (
-  <a href={url} className={`store-card__button store-card__button--${type}`}>
+const Button = ({ label, url, price, type, customClasses }) => (
+  <a
+    href={url}
+    className={`store-card__button store-card__button--${type} ${customClasses}`}
+    target="_blank"
+    rel="noreferrer"
+  >
     <span
       className={`store-card__dollar-sign store-card__dollar-sign--${type}`}
     >
@@ -62,30 +49,55 @@ const Button = ({ label, url, price, type }) => (
 );
 
 const StoreCard = ({ card }) => {
-  const { image, title, description, smallText, buy, alsoAvailable } = card;
-  console.log(card);
+  const {
+    image,
+    bkgImage,
+    title,
+    description,
+    smallText,
+    buy,
+    alsoAvailable,
+    alsoAvailableText,
+  } = card;
   return (
     <div className="store-card">
-      <img src={image} alt={title} className="store-card__image" />
+      <div
+        className="store-card__image-content"
+        style={{ backgroundImage: `url(${bkgImage})`, backgroundSize: 'cover' }}
+      >
+        <img src={image} alt={title} className="store-card__image" />
+      </div>
       <div className="store-card__content">
         <h2>{title}</h2>
         <p>{description}</p>
         {buy.map((i) => (
-          <Button label={i.label} price={i.price} type={i.type} url={i.url} />
+          <Button
+            key={i.label}
+            label={i.label}
+            price={i.price}
+            type={i.type}
+            url={i.url}
+            customClasses={i.customClasses}
+          />
         ))}
         <p className="small" style={{ marginTop: 'auto' }}>
           {smallText}
         </p>
-        {alsoAvailable && (
+        {alsoAvailableText && (
           <p className="small" style={{ marginBottom: '0.5rem' }}>
-            Also available at:
+            {alsoAvailableText}
           </p>
         )}
         {alsoAvailable && (
           <ul className="store-card__also-available">
             {alsoAvailable.map((url) => (
               <li>
-                <a href={url} className="store-card__also-available__link">
+                <a
+                  href={url}
+                  className="store-card__also-available__link"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Buy
                 </a>
               </li>
@@ -100,63 +112,14 @@ const StoreCard = ({ card }) => {
 const Store = () => (
   <Layout>
     <SEO title="Store" />
+    <Helmet>
+      <script src="https://gumroad.com/js/gumroad.js" defer />
+    </Helmet>
     <main className="main-content-wrapper main-content-wrapper--store">
       <div className="store-list">
         {products.map((x) => (
-          <StoreCard card={x} />
+          <StoreCard card={x} key={x.title} />
         ))}
-
-        {/* {[0, 1, 2].map(() => (
-          <div className="store-card">
-            <img src={bohCover} alt="" className="store-card__image" />
-            <div className="store-card__content">
-              <div className="store-card__circle">
-                <span className="store-card__circle-dollar-sign">$</span>14
-              </div>
-              <h2>Book of Hanz</h2>
-              <p>
-                Turn Tracker cards are an easy way to track who has (and who
-                hasn’t) taken a turn in your game. These are useful for any RPG
-                system!
-              </p>
-              <p>Learn More</p>
-              <a
-                href="https://gumroad.com/l/qVWqe"
-                className="store-card__button"
-              >
-                <span className="store-card__dollar-sign">$</span>14 Print &amp;
-                PDF
-              </a>
-              <br />
-              <a
-                href="https://gumroad.com/l/qVWqe"
-                className="store-card__button store-card__button--small"
-              >
-                <span className="store-card__dollar-sign store-card__dollar-sign--small">
-                  $
-                </span>
-                6 PDF
-              </a>
-              <p className="small">
-                48 page printed book and PDF. Also available as only a PDF for
-                $6.
-              </p>
-              <p className="small">Also available at:</p>
-              <ul className="store-card__also-available">
-                <li>
-                  <a href="https://www.drivethrucards.com/product/146133/Turn-Tracker-Initiative-Cards">
-                    <img src={dtrImage} alt="DriveThruRPG" />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://amazingrando.itch.io/book-of-hanz">
-                    <img src={itchImage} alt="Itch.io" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        ))} */}
       </div>
     </main>
   </Layout>
