@@ -1,11 +1,10 @@
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import bohCover from '../images/store/Book of Hanz Cover.png';
 import tableBkg from '../images/store/tim-mossholder-ysDq0fY-bzo-unsplash.jpg';
-import tt from '../images/store/tt.png';
 
 const products = [
   {
@@ -130,6 +129,7 @@ Button.propTypes = {
   url: PropTypes.string,
   price: PropTypes.string,
   type: PropTypes.string,
+  customClasses: PropTypes.string,
 };
 
 StoreCard.propTypes = {
