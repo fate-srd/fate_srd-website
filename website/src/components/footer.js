@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faYoutube, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import logo from '../../../fate_srd-frontend/images/logo.svg';
 import patreon from '../../../fate_srd-frontend/images/become_a_patron_button@2x.png';
 
@@ -42,6 +43,19 @@ const Footer = () => (
       >
         <ul className="site-footer__ul">
           <li className="site-footer__li">
+            <a className="site-footer__link" href="https://youtube.com/FateSRD">
+              <FontAwesomeIcon icon={faYoutube} /> YouTube
+            </a>
+          </li>
+          <li className="site-footer__li" style={{ marginBottom: '2rem' }}>
+            <a
+              className="site-footer__link"
+              href="https://twitter.com/Fate_SRD"
+            >
+              <FontAwesomeIcon icon={faTwitter} /> Twitter
+            </a>
+          </li>
+          <li className="site-footer__li">
             <Link to="/about-site" className="site-footer__link">
               About This Site
             </Link>
@@ -60,22 +74,6 @@ const Footer = () => (
             <Link to="/privacy-policy" className="site-footer__link">
               Privacy Policy
             </Link>
-          </li>
-          <li className="site-footer__li">
-            <a
-              className="site-footer__link"
-              href="https://twitter.com/Fate_SRD"
-            >
-              Fate SRD on Twitter
-            </a>
-          </li>
-          <li className="site-footer__li">
-            <a
-              className="site-footer__link"
-              href="https://datastudio.google.com/open/1BkbV6PR0sUJMQOJrIOQ5bN3PGt3u4Jky"
-            >
-              Site Stats
-            </a>
           </li>
         </ul>
 
