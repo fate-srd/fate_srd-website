@@ -53,7 +53,7 @@ function Article({ data }) {
   function replacer(match, p1, p2, p3, offset, string) {
     const hash = p2
       .replace(/ /g, '-')
-      .replace(/[?,:()“”"'’*]/g, '')
+      .replace(/[?,:()“”"'’+.*]/g, '')
       .replace(/^-/, '')
       .replace(/&amp;/, '')
       .toLowerCase();
