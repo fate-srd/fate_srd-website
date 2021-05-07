@@ -5,6 +5,12 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import bohCover from '../images/store/Book of Hanz Cover.png';
 import tableBkg from '../images/store/tim-mossholder-ysDq0fY-bzo-unsplash.jpg';
+import tt from '../images/store/turn-tracker.jpg';
+import ttBkg from '../images/store/TurnTracker_BadGreen.jpg';
+import audiobook from '../images/store/audiobook.png';
+import audiobookBkg from '../images/store/audiobook-bkg.jpg';
+import thoughts from '../images/store/thoughts.jpg';
+import thoughtsBkg from '../images/store/thoughts-bkg.jpg';
 
 const products = [
   {
@@ -27,6 +33,61 @@ const products = [
     alsoAvailable: [
       'https://www.drivethrurpg.com/product/350062/Book-of-Hanz',
       'https://amazingrando.itch.io/book-of-hanz',
+    ],
+  },
+  {
+    title: 'Turn Tracker Initiative Cards',
+    description:
+      'Turn Tracker cards are an easy way to track who has (and who hasn’t) taken a turn in your game. These are useful for any RPG system!',
+    smallText: 'Print-on-demand through DriveThruRPG.',
+    image: tt,
+    bkgImage: ttBkg,
+    buy: [
+      {
+        label: 'Card Deck',
+        price: '4',
+        type: '',
+        url:
+          'https://www.drivethrurpg.com/product/146133/Turn-Tracker-Initiative-Cards',
+      },
+    ],
+  },
+  {
+    title: 'Fate Accelerated SRD Audiobook',
+    description:
+      'This is a reading of the Fate Accelerated SRD for those who would benefit from having an audio version of the acclaimed grab-n-go roleplaying game.',
+    image: audiobook,
+    bkgImage: audiobookBkg,
+    buy: [
+      {
+        label: 'Audiobook',
+        price: '3',
+        type: '',
+        url: 'https://amazingrando.itch.io/fate-accelerated-srd-audiobook',
+      },
+    ],
+    alsoAvailableText: 'Also available at:',
+    alsoAvailable: [
+      'https://www.drivethrurpg.com/product/289768/Fate-Accelerated-SRD-Audiobook',
+    ],
+  },
+  {
+    title: 'Thoughts on Fate: A Collection of Essays on the Fate RPG',
+    description:
+      'Thoughts on Fate is a collection of essays that cover a wealth of topics about the Fate roleplaying game.',
+    image: thoughts,
+    bkgImage: thoughtsBkg,
+    buy: [
+      {
+        label: 'Pay What You Want',
+        price: '',
+        type: '',
+        url: 'https://amazingrando.itch.io/thoughts-on-the-fate-rpg',
+      },
+    ],
+    alsoAvailableText: 'Also available at:',
+    alsoAvailable: [
+      'https://www.drivethrurpg.com/product/176051/Thoughts-on-Fate-A-Collection-of-Essays-on-the-Fate-RPG',
     ],
   },
 ];
