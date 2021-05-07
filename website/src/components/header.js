@@ -31,7 +31,6 @@ class Header extends React.Component {
     );
     const mainMenu = context.querySelector('.nav-primary');
     const rulesToggle = context.querySelectorAll('.nav-primary__toggle');
-    console.log(rulesToggle);
 
     const handleMainMenu = () => {
       mainMenu.classList.toggle('nav-primary--open');

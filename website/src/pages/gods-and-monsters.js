@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Aside from '../components/aside';
 import Layout from '../components/layout';
-import Menu from '../components/menu';
 import SEO from '../components/seo';
 
 const GodsAndMonsters = () => {

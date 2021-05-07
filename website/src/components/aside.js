@@ -29,8 +29,6 @@ class Aside extends React.Component {
     );
 
     const handleSectionToggleButton = function () {
-      console.log('clicked');
-      console.log(this);
       // eslint-disable-next-line react/no-this-in-sfc
       if (this.getAttribute('aria-expanded') === 'true') {
         // eslint-disable-next-line react/no-this-in-sfc
@@ -48,6 +46,7 @@ class Aside extends React.Component {
 
   render() {
     const { ruleBook, authorlist } = this.props;
+
     let menu = ruleBook.toLowerCase().split(' ').join('-');
     menu = menu.replace('#', '');
     if (menu === 'odds-and-ends') {
