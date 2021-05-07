@@ -34,7 +34,9 @@ const products = [
 const Button = ({ label, url, price, type, customClasses }) => (
   <a
     href={url}
-    className={`store-card__button store-card__button--${type} ${customClasses}`}
+    className={
+      customClasses || `store-card__button store-card__button--${type}`
+    }
     target="_blank"
     rel="noreferrer"
   >
