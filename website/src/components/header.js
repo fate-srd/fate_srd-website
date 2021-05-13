@@ -220,14 +220,43 @@ class Header extends React.Component {
                   </dl>
                 </div>
               </li>
-              <li className="nav-primary__li">
-                <Link to="/actual-play" className="nav-primary__link">
+
+              <li
+                className="nav-primary__li has-nav-flyout nav-primary__sub"
+                id="flyout-actual-play"
+              >
+                <button
+                  type="button"
+                  className="nav-primary__link nav-primary__toggle"
+                  data-target="flyout-actual-play"
+                >
                   <FontAwesomeIcon
                     icon={faHeadSideHeadphones}
                     className="nav-primary__link-icon"
                   />
-                  Actual Play
-                </Link>
+                  <span className="nav-primary__rules-wrapper">
+                    Actual Play
+                    <FontAwesomeIcon
+                      icon={faPlus}
+                      className="nav-primary__sub__mobile-toggle plus"
+                    />
+                    <FontAwesomeIcon
+                      icon={faMinus}
+                      className="nav-primary__sub__mobile-toggle minus"
+                    />
+                  </span>
+                </button>
+                <div className="nav-flyout nav-flyout--simple">
+                  <dl className="nav-flyout__region nav-flyout__region--simple">
+                    <dt>Watch, Listen, and Enjoy!</dt>
+                    <dd>
+                      <Link to="/learn-to-play">Learn to Play Fate Series</Link>
+                    </dd>
+                    <dd>
+                      <Link to="/actual-play">Actual Play List</Link>
+                    </dd>
+                  </dl>
+                </div>
               </li>
 
               <li

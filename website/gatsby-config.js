@@ -117,6 +117,14 @@ module.exports = {
         offset: -100,
       },
     },
+    {
+      resolve: `gatsby-source-youtube-v3`,
+      options: {
+        channelId: ['UCQSvVIzeYCcGIbyD4pTsAEQ'],
+        apiKey: 'AIzaSyC8Du-IyExCcXatIolDhiJgEvTeU3XubXA', // Optional for public requests
+        maxVideos: 50, // Defaults to 50
+      },
+    },
     `gatsby-plugin-remove-trailing-slashes`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
