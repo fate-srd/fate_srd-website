@@ -76,7 +76,7 @@ const Home = () => {
     {
       title: 'Fate System Toolkit',
       desc:
-        'This toolkit is <strong>includes many ideas</strong> that can be used wholesale or as inspiration for your own games.',
+        'This toolkit <strong>includes many ideas</strong> that can be used wholesale or as inspiration for your own games.',
       url: '/fate-system-toolkit',
     },
     {
@@ -108,7 +108,7 @@ const Home = () => {
     },
     {
       title: '#iHunt',
-      desc: `<strong>#iHunt is a story telling game about killing monsters in the gig economy.</strong> A gig app called #iHunt offers them more money than you have ever made to hit the streets and kill monsters that goes bump in the night. `,
+      desc: `<strong>#iHunt is a story telling game about killing monsters in the gig economy.</strong> A gig app called #iHunt offers them more money than you have ever made to hit the streets and kill monsters that go bump in the night. `,
       url: '/ihunt',
     },
   ];
