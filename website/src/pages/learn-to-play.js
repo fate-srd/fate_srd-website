@@ -6,7 +6,7 @@ import SEO from '../components/seo';
 const LearnToPlay = () => {
   const data = useStaticQuery(graphql`
     {
-      allYoutubeVideo {
+      allYoutubeVideo(sort: { fields: publishedAt, order: DESC }) {
         edges {
           node {
             id
