@@ -29,7 +29,8 @@ const products = [
         customClasses: 'gumroad-button',
       },
     ],
-    alsoAvailableText: 'PDF available at:',
+    alsoAvailableText:
+      'Print-on-demand (for international folks) & PDF available at:',
     alsoAvailable: [
       'https://www.drivethrurpg.com/product/350062/Book-of-Hanz',
       'https://amazingrando.itch.io/book-of-hanz',
