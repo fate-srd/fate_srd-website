@@ -16,7 +16,7 @@ class Search extends React.Component {
         <SEO title="Search" />
         <main className="main-content-wrapper" ref={(el) => (this.div = el)}>
           <h1 className="page-title">Search</h1>
-          <div className="gcse-search" />
+          <div className="gcse-search"><a href="https://cse.google.com/cse?cx=605997aac81893733">Search the Fate SRD</a></div>
         </main>
       </Layout>
     );
