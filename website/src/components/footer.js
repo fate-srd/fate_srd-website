@@ -129,8 +129,7 @@ const Footer = () => (
             permission. The Four Actions icons were designed by Jeremy Keller.
           </p>
           <p>
-            This work is based on{' '}
-            <a href="http://www.faterpg.com/">Fate Condensed</a> (found at{' '}
+            This work is based on Fate Condensed (found at{' '}
             <a href="http://www.faterpg.com/">http://www.faterpg.com/</a>), a
             product of Evil Hat Productions, LLC, developed, authored, and
             edited by PK Sullivan, Ed Turner, Leonard Balsera, Fred Hicks,

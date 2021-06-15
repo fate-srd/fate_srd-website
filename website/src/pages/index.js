@@ -45,6 +45,7 @@ const BookImage = (props) => {
           .toLowerCase()}`,
         images
       )}
+      alt={title}
     />
   );
 };
@@ -205,6 +206,7 @@ const Home = () => {
                       Date.now() +
                       Math.floor(Math.random() * Math.floor(500000000))
                     }
+                    alt="Fate Core"
                   />
                   <div className="core-rules-list__overview core-rules-list__overview--core">
                     The whole system
@@ -232,6 +234,7 @@ const Home = () => {
                       Date.now() +
                       Math.floor(Math.random() * Math.floor(500000000))
                     }
+                    alt="Fate Accelerated"
                   />
                   <div className="core-rules-list__overview core-rules-list__overview--fae">
                     Get started quick!
@@ -263,6 +266,7 @@ const Home = () => {
                       Date.now() +
                       Math.floor(Math.random() * Math.floor(500000000))
                     }
+                    alt="Fate Condensed"
                   />
                   <div className="core-rules-list__overview core-rules-list__overview--condensed">
                     Compact version of Core
@@ -302,6 +306,7 @@ const Home = () => {
               key="playing-online"
               className="playing-online"
               fluid={singleImage('play-online', images)}
+              alt="Playing Fate Online"
             />
           </section>
 

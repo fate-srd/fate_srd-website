@@ -137,6 +137,7 @@ function buildMenu(menuArray, classBase) {
           <button
             className={classBase ? `${classBase}__show-menu` : 'show-menu'}
             aria-expanded="false"
+            aria-label="Menu Toggle"
             type="button"
           >
             <span className="closed">
