@@ -27,5 +27,8 @@
     "fate_srd-frontend",
     "fate_srd-backend",
     "website"
-  ]
+  ],
+  "dependencies": {
+    "caniuse-lite": "^1.0.30001237"
+  }
 }
