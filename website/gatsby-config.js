@@ -22,8 +22,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `fate-srd`,
-        short_name: `fate-srd`,
+        name: `Fate SRD`,
+        short_name: `Fate SRD`,
         start_url: `/`,
         background_color: `#15598F`,
         theme_color: `#15598F`,
@@ -128,6 +128,11 @@ module.exports = {
     `gatsby-plugin-remove-trailing-slashes`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/`, `/*`],
+      },
+    },
   ],
 };
