@@ -2,6 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube, faTwitter } from '@fortawesome/free-brands-svg-icons';
+
 import logo from '../../../fate_srd-frontend/images/logo.svg';
 import patreon from '../../../fate_srd-frontend/images/become_a_patron_button@2x.png';
 
@@ -36,6 +37,7 @@ const Footer = () => (
           className="site-footer__patreon-img"
         />
       </a>
+
       <nav
         className="site-footer__nav"
         role="navigation"
@@ -92,6 +94,7 @@ const Footer = () => (
           ))}
         </ul>
       </nav>
+
       <div
         className="site-footer__legal"
         aria-label="Legal Text"
@@ -152,6 +155,21 @@ const Footer = () => (
             .
           </p>
         </div>
+      </div>
+      <div className="site-footer__email">
+        <h3>
+          Proud sponsor of the Indie RPG newsletter, a weekly round-up of the
+          latest articles, videos, podcasts and more all about indie RPGs
+        </h3>
+        <iframe
+          title="indie RPG Newsletter"
+          src="https://ttrpg.substack.com/embed"
+          width="480"
+          height="320"
+          frameBorder="0"
+          scrolling="no"
+          className="site-footer__email__signup"
+        />
       </div>
     </div>
   </footer>

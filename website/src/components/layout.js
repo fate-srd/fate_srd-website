@@ -10,12 +10,10 @@ import PropTypes from 'prop-types';
 
 import Header from './header';
 import Footer from './footer';
-import Announcement from './announcement';
 import '../../../fate_srd-frontend/components/style.scss';
 
 const Layout = ({ children, aside }) => (
   <div className="page-wrapper">
-    <Announcement />
     <Header />
     <div className="site-main">
       <div
