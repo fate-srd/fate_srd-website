@@ -157,10 +157,7 @@ const Footer = () => (
         </div>
       </div>
       <div className="site-footer__email">
-        <h3>
-          Proud sponsor of the Indie RPG newsletter, a weekly round-up of the
-          latest articles, videos, podcasts and more all about indie RPGs
-        </h3>
+        <h3>Proud sponsor of the Indie RPG newsletter</h3>
         <iframe
           title="indie RPG Newsletter"
           src="https://ttrpg.substack.com/embed"
