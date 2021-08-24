@@ -17,6 +17,7 @@ const fateTranslations = {
   'Fate SRD in Korean 2':
     'http://ko.trpgkr.wikidok.net/wp-d/5d1db45ca4a7f1be66b95a44/View',
   'Fate SRD in Japanese': 'https://w.atwiki.jp/fatesrdj/',
+  'Fate SRD in Chinese': 'https://www.sites.google.com/site/faterpg/fate',
 };
 
 const Footer = () => (
