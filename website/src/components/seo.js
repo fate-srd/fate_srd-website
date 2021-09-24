@@ -45,7 +45,19 @@ function SEO({ description, lang, meta, title }) {
           content: title,
         },
         {
+          property: `twitter:title`,
+          content: title,
+        },
+        {
           property: `og:description`,
+          content: metaDescription,
+        },
+        {
+          property: `twitter:description`,
+          content: metaDescription,
+        },
+        {
+          property: `twitter:image:alt`,
           content: metaDescription,
         },
         {
@@ -57,8 +69,12 @@ function SEO({ description, lang, meta, title }) {
           content: site.siteMetadata.sharingImage,
         },
         {
+          property: `twitter:image`,
+          content: site.siteMetadata.sharingImage,
+        },
+        {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
