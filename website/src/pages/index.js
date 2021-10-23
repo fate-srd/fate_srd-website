@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhoneLaptop } from '@fortawesome/pro-regular-svg-icons';
+import {
+  faPhoneLaptop,
+  faLongArrowAltRight,
+} from '@fortawesome/pro-regular-svg-icons';
 import Img from 'gatsby-image';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
@@ -11,17 +14,18 @@ const ListItem = (props, key) => {
   const { title, desc, url, images, hasImage = true } = props;
   return (
     <li className="core-rules-list__item" key={key}>
-      <div className="core-rules-list__item__content">
-        <BookImage title={title} hasImage={hasImage} images={images} />
-        <h3>{title}</h3>
-        <p
-          className={!desc ? 'hide' : ''}
-          dangerouslySetInnerHTML={{ __html: desc }}
-        />
-        <Link className="core-rules-list__button" to={url}>
-          Start Reading
-        </Link>
-      </div>
+      <Link to={url} aria-label={`Read ${title}`}>
+        <div className="core-rules-list__item__content">
+          <BookImage title={title} hasImage={hasImage} images={images} />
+          <h3>
+            {title} <FontAwesomeIcon icon={faLongArrowAltRight} />
+          </h3>
+          <p
+            className={!desc ? 'hide' : ''}
+            dangerouslySetInnerHTML={{ __html: desc }}
+          />
+        </div>
+      </Link>
     </li>
   );
 };
@@ -198,96 +202,95 @@ const Home = () => {
             <h2 style={{ marginBottom: '2rem' }}>Getting Started</h2>
             <ul className="core-rules-list">
               <li className="core-rules-list__item core-rules-list__item--space-above">
-                <div className="core-rules-list__item__content">
-                  <Img
-                    className="core-rules-list__item__image"
-                    fluid={singleImage('hero--fate-core', images)}
-                    key={
-                      Date.now() +
-                      Math.floor(Math.random() * Math.floor(500000000))
-                    }
-                    alt="Fate Core"
-                  />
-                  <div className="core-rules-list__overview core-rules-list__overview--core">
-                    The whole system
+                <Link to="/fate-core" aria-label="Read Fate Core">
+                  <div className="core-rules-list__item__content">
+                    <Img
+                      className="core-rules-list__item__image"
+                      fluid={singleImage('hero--fate-core', images)}
+                      key={
+                        Date.now() +
+                        Math.floor(Math.random() * Math.floor(500000000))
+                      }
+                      alt="Fate Core"
+                    />
+                    <div className="core-rules-list__overview core-rules-list__overview--core">
+                      The whole system
+                    </div>
+                    <h3>
+                      Fate Core <FontAwesomeIcon icon={faLongArrowAltRight} />
+                    </h3>
+                    <p>
+                      <strong>
+                        Fate Core is a dynamic and flexible roleplaying game
+                        built around proactive characters that you play.
+                      </strong>{' '}
+                      Fate Core does not have a default setting to encourage all
+                      styles of play.
+                    </p>
                   </div>
-                  <h3>Fate Core</h3>
-                  <p>
-                    <strong>
-                      Fate Core is a dynamic and flexible roleplaying game built
-                      around proactive characters that you play.
-                    </strong>{' '}
-                    Fate Core does not have a default setting to encourage all
-                    styles of play.
-                  </p>
-                  <Link className="core-rules-list__button" to="/fate-core">
-                    Start Reading
-                  </Link>
-                </div>
+                </Link>
               </li>
               <li className="core-rules-list__item core-rules-list__item--space-above">
-                <div className="core-rules-list__item__content">
-                  <Img
-                    className="core-rules-list__item__image"
-                    fluid={singleImage('hero--fate-accelerated', images)}
-                    key={
-                      Date.now() +
-                      Math.floor(Math.random() * Math.floor(500000000))
-                    }
-                    alt="Fate Accelerated"
-                  />
-                  <div className="core-rules-list__overview core-rules-list__overview--fae">
-                    Get started quick!
+                <Link to="/fate-accelerated" aria-label="Read Fate Accelerated">
+                  <div className="core-rules-list__item__content">
+                    <Img
+                      className="core-rules-list__item__image"
+                      fluid={singleImage('hero--fate-accelerated', images)}
+                      key={
+                        Date.now() +
+                        Math.floor(Math.random() * Math.floor(500000000))
+                      }
+                      alt="Fate Accelerated"
+                    />
+                    <div className="core-rules-list__overview core-rules-list__overview--fae">
+                      Get started quick!
+                    </div>
+                    <h3>
+                      Fate Accelerated{' '}
+                      <FontAwesomeIcon icon={faLongArrowAltRight} />
+                    </h3>
+                    <p>
+                      <strong>
+                        <abbr title="Fate Accelerated">FAE</abbr> is a grab-n-go
+                        version of Fate
+                      </strong>
+                      , written for <strong>easy prep and easy play</strong>.
+                      Don't let that simplicity fool you, use these rules to run
+                      any style and any length campaign.
+                    </p>
                   </div>
-                  <h3>Fate Accelerated</h3>
-                  <p>
-                    <strong>
-                      <abbr title="Fate Accelerated">FAE</abbr> is a grab-n-go
-                      version of Fate
-                    </strong>
-                    , written for <strong>easy prep and easy play</strong>.
-                    Don't let that simplicity fool you, use these rules to run
-                    any style and any length campaign.
-                  </p>
-                  <Link
-                    className="core-rules-list__button"
-                    to="/fate-accelerated"
-                  >
-                    Start Reading
-                  </Link>
-                </div>
+                </Link>
               </li>
               <li className="core-rules-list__item core-rules-list__item--space-above">
-                <div className="core-rules-list__item__content">
-                  <Img
-                    className="core-rules-list__item__image"
-                    fluid={singleImage('hero--fate-condensed', images)}
-                    key={
-                      Date.now() +
-                      Math.floor(Math.random() * Math.floor(500000000))
-                    }
-                    alt="Fate Condensed"
-                  />
-                  <div className="core-rules-list__overview core-rules-list__overview--condensed">
-                    Compact version of Core
+                <Link to="/fate-condensed" aria-label="Read Fate Condensed">
+                  <div className="core-rules-list__item__content">
+                    <Img
+                      className="core-rules-list__item__image"
+                      fluid={singleImage('hero--fate-condensed', images)}
+                      key={
+                        Date.now() +
+                        Math.floor(Math.random() * Math.floor(500000000))
+                      }
+                      alt="Fate Condensed"
+                    />
+                    <div className="core-rules-list__overview core-rules-list__overview--condensed">
+                      Compact version of Core
+                    </div>
+                    <h3>
+                      Fate Condensed{' '}
+                      <FontAwesomeIcon icon={faLongArrowAltRight} />
+                    </h3>
+                    <p>
+                      <strong>
+                        Fate Condensed is a version of Fate Core System in a
+                        compact form.
+                      </strong>{' '}
+                      It is a complete roleplaying game; while other books might
+                      enhance your use of it, you don’t need any other book to
+                      play.
+                    </p>
                   </div>
-                  <h3>Fate Condensed</h3>
-                  <p>
-                    <strong>
-                      Fate Condensed is a version of Fate Core System in a
-                      compact form.
-                    </strong>{' '}
-                    It is a complete roleplaying game; while other books might
-                    enhance your use of it, you don’t need any other book to
-                    play.
-                  </p>
-                  <Link
-                    className="core-rules-list__button"
-                    to="/fate-condensed"
-                  >
-                    Start Reading
-                  </Link>
-                </div>
+                </Link>
               </li>
             </ul>
           </section>

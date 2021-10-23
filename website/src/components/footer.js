@@ -96,11 +96,7 @@ const Footer = () => (
         </ul>
       </nav>
 
-      <div
-        className="site-footer__legal"
-        aria-label="Legal Text"
-        role="contentinfo"
-      >
+      <div className="site-footer__legal" aria-label="Legal Text">
         <div className="content">
           <p>
             This site is copyright 2013–{new Date().getFullYear()}&nbsp;
