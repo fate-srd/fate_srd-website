@@ -178,6 +178,15 @@ class Header extends React.Component {
                   <dl className="nav-flyout__region">
                     <dt>Odds &amp; Ends</dt>
                     <dd>
+                      <a
+                        href="https://bookofhanz.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        The Book of Hanz
+                      </a>
+                    </dd>
+                    <dd>
                       <Link to="/odds-and-ends">Odds &amp; Ends</Link>
                     </dd>
                   </dl>

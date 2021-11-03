@@ -58,7 +58,13 @@ const Products = () => {
               })
               .map((item) => (
                 <li key={item.title}>
-                  <a href={item.field_link.uri}>{item.title}</a>
+                  <a href={item.field_link.uri}>
+                    {item.title}
+                    {/* {item.field_link.uri.includes('itch') ? ' (itch.io)' : ''}
+                    {item.field_link.uri.includes('drivethrurpg')
+                      ? ' (DriveThruRPG)'
+                      : ''} */}
+                  </a>
                 </li>
               ))}
           </ul>
