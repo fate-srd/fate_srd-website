@@ -297,12 +297,6 @@ class Header extends React.Component {
                   <dl className="nav-flyout__region nav-flyout__region--simple">
                     <dt>Discuss Fate Around the Web</dt>
                     <dd>
-                      <a href="https://community.fate-srd.com/">
-                        <FontAwesomeIcon icon={faDiscourse} /> Fate SRD
-                        Community
-                      </a>
-                    </dd>
-                    <dd>
                       <a href="https://discord.gg/CeXKx8NGYU">
                         <FontAwesomeIcon icon={faDiscord} /> Fate Tabletop RPGs
                       </a>
