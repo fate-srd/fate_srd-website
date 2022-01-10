@@ -9789,14 +9789,6 @@ gatsby-plugin-anchor-links@^1.2.0:
   dependencies:
     scroll-to-element "^2.0.3"
 
-gatsby-plugin-csp@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-csp/-/gatsby-plugin-csp-1.1.3.tgz#27258c0f9b94cf17c55b4d42e520de9870031254"
-  integrity sha512-jTAdWpJXCAaqBXAmf07XVnsgHp7tdtC36XrOQUMRMrEOkEIpM+x+4X3Xma4YAmFbuGH+QKRGmbmCCRNhV//EDA==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    lodash.flatten "^4.4.0"
-
 gatsby-plugin-favicon@^3.1.6:
   version "3.1.6"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-favicon/-/gatsby-plugin-favicon-3.1.6.tgz#f63f45c9af112bc13dbf4cb89e0445f72c0811ac"
