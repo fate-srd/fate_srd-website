@@ -169,37 +169,16 @@ const Home = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <main className="main-content-wrapper" style={{ paddingBottom: '0' }}>
+      <main
+        className="main-content-wrapper"
+        style={{ paddingBottom: '0', paddingTop: '0' }}
+      >
         <div className="main-content main-content__home">
-          <section className="home__section home__section--hero">
-            <h1 className="page-title">Fate Roleplaying Game</h1>
-            <h2>System Reference Document (SRD)</h2>
-          </section>
-
-          <section className="grid-2up">
-            <section className="home__section home__section--story">
-              <div className="content">
-                <h2>Story-focused tools</h2>
-                <p>
-                  Focus on the action with a roleplaying game that puts the
-                  narrative and fiction first!
-                </p>
-              </div>
-            </section>
-
-            <section className="home__section home__section--want">
-              <div className="content">
-                <h2>Make it what YOU want</h2>
-                <p>
-                  The Fate RPG is a flexible game that supports all the worlds
-                  you dream up.
-                </p>
-              </div>
-            </section>
-          </section>
-
           <section className="section__fate-core">
-            <h2 style={{ marginBottom: '2rem' }}>Getting Started</h2>
+            <h1 className="page-title">Fate Roleplaying Game</h1>
+            <h2 style={{ marginBottom: '2rem' }}>
+              System Reference Document (SRD)
+            </h2>
             <ul className="core-rules-list">
               <li className="core-rules-list__item core-rules-list__item--space-above">
                 <Link to="/fate-core" aria-label="Read Fate Core">
@@ -349,7 +328,7 @@ const Home = () => {
             </ul>
           </section>
 
-          <section className="section__more-fate">
+          <section className="section__more-fate last">
             <h2>Worlds of Adventure SRDs</h2>
             <ul className="core-rules-list core-rules-list--2up">
               {woa.map((v) => (
