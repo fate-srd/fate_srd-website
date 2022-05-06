@@ -17,6 +17,7 @@ import bookOfHanzCover from '../images/store/Book of Hanz Cover.png';
 
 const Layout = ({ children, aside }) => {
   const [showPromo, setShowPromo] = useState(false);
+  const [gumroadCount, setGumroadCount] = useState(false);
   const firesalePromoRef = useRef();
 
   function setCookie(cname, cvalue, exdays) {
@@ -29,6 +30,21 @@ const Layout = ({ children, aside }) => {
   const handleCloseClick = () => {
     setShowPromo(false);
     setCookie('firesale', false, 300);
+  };
+
+  const gumroad = async () => {
+    const response = await fetch(
+      `https://api.gumroad.com/v2/products/F1Uv9H_nAZhJNPtV9uCbbg%3D%3D?access_token=qUP6v_n5MfbU8mFcxrLomo9i8uIx-T34OFmxU63WZlM`,
+      {
+        method: 'GET',
+      }
+    );
+    const data = await response.json();
+    if (data.product.max_purchase_count - data.product.sales_count > 0) {
+      setGumroadCount(
+        data.product.max_purchase_count - data.product.sales_count
+      );
+    }
   };
 
   const scriptAlreadyExists = () =>
@@ -49,10 +65,10 @@ const Layout = ({ children, aside }) => {
     if (!scriptAlreadyExists()) {
       appendScript();
     }
+    gumroad();
   }, []);
 
   useEffect(() => {
-    console.log('useEffect fired');
     const firesaleCookieName = 'firesale';
 
     function checkCookie() {
@@ -94,7 +110,9 @@ const Layout = ({ children, aside }) => {
             <div className="firesale-text">
               <p style={{ display: 'flex' }}>
                 <span className="firesale-countdown">
-                  🔥 Only 32 copies left
+                  {gumroadCount
+                    ? `🔥 Only ${gumroadCount} copies left`
+                    : `SOLD OUT`}
                 </span>
                 <button
                   type="button"
@@ -130,5 +148,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
   aside: PropTypes.bool,
 };
-
 export default Layout;
