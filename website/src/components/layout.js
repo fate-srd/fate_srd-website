@@ -7,7 +7,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import * as LottiePlayer from '@lottiefiles/lottie-player';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/pro-solid-svg-icons';
 
@@ -20,34 +19,48 @@ const Layout = ({ children, aside }) => {
   const [showPromo, setShowPromo] = useState(false);
   const firesalePromoRef = useRef();
 
+  function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+    const expires = `expires=${d.toUTCString()}`;
+    document.cookie = `${cname}=${cvalue};${expires};path=/`;
+  }
+
   const handleCloseClick = () => {
     setShowPromo(false);
+    setCookie('firesale', false, 300);
+  };
+
+  const scriptAlreadyExists = () =>
+    document.querySelector('script#lottieScript') !== null;
+
+  const appendScript = () => {
+    const script = document.createElement('script');
+    script.id = 'lottieScript';
+    script.src =
+      'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js';
+    script.async = true;
+    script.defer = true;
+    script.crossOrigin = 'anonymous';
+    document.body.append(script);
   };
 
   useEffect(() => {
-    const firesaleCookieName = 'Firesale';
-
-    /**
-     * https://www.w3schools.com/js/js_cookies.asp
-     */
-    function setCookie(cname, cvalue, exdays) {
-      const d = new Date();
-      d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
-      const expires = `expires=${d.toUTCString()}`;
-      document.cookie = `${cname}=${cvalue};${expires};path=/`;
+    if (!scriptAlreadyExists()) {
+      appendScript();
     }
+  }, []);
+
+  useEffect(() => {
+    console.log('useEffect fired');
+    const firesaleCookieName = 'firesale';
 
     function checkCookie() {
       const cookieList = document.cookie;
-      console.log(
-        cookieList.includes(firesaleCookieName),
-        'cookieList.includes(firesaleCookieName)'
-      );
       return cookieList.includes(firesaleCookieName);
     }
 
     if (!checkCookie()) {
-      console.log(firesaleCookieName, 'firesaleCookieName');
       setShowPromo(true);
     }
   }, []);
@@ -67,44 +80,48 @@ const Layout = ({ children, aside }) => {
         </div>
       </div>
       <Footer />
-      <div
-        className="firesale"
-        ref={firesalePromoRef}
-        style={showPromo ? { display: 'none' } : ''}
-      >
-        <div className="firesale-content">
-          <img
-            className="firesale-image"
-            src={bookOfHanzCover}
-            alt="Book of Hanz"
-          />
-          <div className="firesale-text">
-            <p style={{ display: 'flex' }}>
-              <span className="firesale-countdown">🔥 Only 32 copies left</span>
-              <button
-                type="button"
-                className="firesale-close"
-                onClick={handleCloseClick}
-              >
-                <FontAwesomeIcon icon={faTimes} />
-                Close
-              </button>
-            </p>
-            <h2>Book of Hanz Firesale</h2>
-            <h3>Get your copy before they are gone!</h3>
-            <a className="firesale-button" href="https://gumroad.com/l/qVWqe">
-              $8 Buy Now
-            </a>
+      {showPromo && (
+        <div
+          className={showPromo ? 'firesale firesale--show' : 'firesale'}
+          ref={firesalePromoRef}
+        >
+          <div className="firesale-content">
+            <img
+              className="firesale-image"
+              src={bookOfHanzCover}
+              alt="Book of Hanz"
+            />
+            <div className="firesale-text">
+              <p style={{ display: 'flex' }}>
+                <span className="firesale-countdown">
+                  🔥 Only 32 copies left
+                </span>
+                <button
+                  type="button"
+                  className="firesale-close"
+                  onClick={handleCloseClick}
+                >
+                  <FontAwesomeIcon icon={faTimes} />
+                  Close
+                </button>
+              </p>
+              <h2>Book of Hanz Firesale</h2>
+              <h3>Get your copy before they are gone!</h3>
+              <a className="firesale-button" href="https://gumroad.com/l/qVWqe">
+                $8 Buy Now
+              </a>
+            </div>
           </div>
+
+          <lottie-player
+            autoplay
+            loop
+            mode="normal"
+            src="https://assets10.lottiefiles.com/packages/lf20_no9qrf5p.json"
+            class="firesale-container"
+          />
         </div>
-        <lottie-player
-          autoplay
-          loop
-          mode="normal"
-          src="https://assets10.lottiefiles.com/packages/lf20_no9qrf5p.json"
-          class="firesale-container"
-        />
-      </div>
+      )}
     </div>
   );
 };
