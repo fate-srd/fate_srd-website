@@ -28,6 +28,7 @@ module.exports = {
         background_color: `#15598F`,
         theme_color: `#15598F`,
         display: `standalone`,
+        icon: `${__dirname}/src/images/sharing/favicon.png`,
       },
     },
     {
