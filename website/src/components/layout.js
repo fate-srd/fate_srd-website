@@ -34,7 +34,7 @@ const Layout = ({ children, aside }) => {
 
   const gumroad = async () => {
     const response = await fetch(
-      `https://api.gumroad.com/v2/products/F1Uv9H_nAZhJNPtV9uCbbg%3D%3D?access_token=qUP6v_n5MfbU8mFcxrLomo9i8uIx-T34OFmxU63WZlM`,
+      `https://api.gumroad.com/v2/products/F1Uv9H_nAZhJNPtV9uCbbg%3D%3D?access_token=0LBKhBEA_zqQkc_LZ0xHg7vK4tEslbxnMdGOiNGksBQ`,
       {
         method: 'GET',
       }
@@ -108,7 +108,7 @@ const Layout = ({ children, aside }) => {
               alt="Book of Hanz"
             />
             <div className="firesale-text">
-              <p style={{ display: 'flex' }}>
+              <div style={{ display: 'flex' }}>
                 <span className="firesale-countdown">
                   {gumroadCount
                     ? `🔥 Only ${gumroadCount} copies left`
@@ -122,9 +122,10 @@ const Layout = ({ children, aside }) => {
                   <FontAwesomeIcon icon={faTimes} />
                   Close
                 </button>
-              </p>
+              </div>
               <h2>Book of Hanz Firesale</h2>
               <h3>Get your copy before they are gone!</h3>
+              <p>Free shipping (US only)</p>
               <a className="firesale-button" href="https://gumroad.com/l/qVWqe">
                 $8 Buy Now
               </a>
