@@ -36,25 +36,30 @@ const LearnToPlay = () => {
         <br />
 
         <ul className="ap-card__ul">
-          {data.allYoutubeVideo.edges.map((item) => (
-            <li key={item.node.title} className="ap-card__card">
-              <a href={`https://www.youtube.com/watch?v=${item.node.videoId}`}>
-                <img
-                  className="ap-card__img"
-                  src={item.node.thumbnail.url}
-                  alt={item.node.title}
-                />
-              </a>
-              <h3 className="ap-card__title">
+          {data.allYoutubeVideo.edges
+            .filter((item) => item.node.videoId !== '1dYG32qrPnk')
+            .map((item) => (
+              <li key={item.node.title} className="ap-card__card">
+                {console.log(item.node.title, item.node.videoId)}
                 <a
                   href={`https://www.youtube.com/watch?v=${item.node.videoId}`}
                 >
-                  {item.node.title}
+                  <img
+                    className="ap-card__img"
+                    src={item.node.thumbnail.url}
+                    alt={item.node.title}
+                  />
                 </a>
-              </h3>
-              <p className="small">{item.node.publishedAt}</p>
-            </li>
-          ))}
+                <h3 className="ap-card__title">
+                  <a
+                    href={`https://www.youtube.com/watch?v=${item.node.videoId}`}
+                  >
+                    {item.node.title}
+                  </a>
+                </h3>
+                <p className="small">{item.node.publishedAt}</p>
+              </li>
+            ))}
         </ul>
       </main>
     </Layout>
