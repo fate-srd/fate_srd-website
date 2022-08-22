@@ -35,9 +35,6 @@ function Article({ data }) {
           });
         }
       }
-      if (content.length <= 1) {
-        document.querySelector('.main-content-wrapper .toc').remove();
-      }
       return content;
     };
     setToc(tocContent());
