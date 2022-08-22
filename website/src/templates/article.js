@@ -7,7 +7,7 @@ import Aside from '../components/aside';
 import SEO from '../components/seo';
 
 function Article({ data }) {
-  const [toc, setToc] = useState([{ text: 'testText', id: 'id-test' }]);
+  const [toc, setToc] = useState([{}]);
 
   useEffect(() => {
     const headers = document.querySelectorAll(
@@ -40,7 +40,6 @@ function Article({ data }) {
       }
       return content;
     };
-
     setToc(tocContent());
   }, []);
 
@@ -72,16 +71,19 @@ function Article({ data }) {
       <main className="main-content-wrapper" role="main">
         <p className="rules-section">{ruleBook}</p>
         <h1 className="page-title">{pageData.title}</h1>
-        <div className="toc">
-          <h5 className="toc__header">Table of Contents</h5>
-          <ul className="toc__ul">
-            {toc.map((item) => (
-              <li key={item.id}>
-                <a href={`#${item.id}`}>{item.text}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {console.log(toc, `toc`)}
+        {toc.length > 1 && (
+          <div className="toc">
+            <h5 className="toc__header">Table of Contents</h5>
+            <ul className="toc__ul">
+              {toc.map((item) => (
+                <li key={item.id}>
+                  <a href={`#${item.id}`}>{item.text}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         <div dangerouslySetInnerHTML={{ __html: pageContent }} />
       </main>
       <aside className="aside-wrapper">
