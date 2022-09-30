@@ -16,17 +16,16 @@ const products = [
   {
     title: 'Book of Hanz',
     description:
-      'Collected for the first time in paperback, The Book of Hanz unlocks the code to better Fate games than you ever imagined.',
-    smallText: '48 page printed book and PDF.',
+      'Collected for the first time, The Book of Hanz unlocks the code to better Fate games than you ever imagined.',
+    smallText: '48 page PDF.',
     image: bohCover,
     bkgImage: tableBkg,
     buy: [
       {
-        label: 'Print & PDF',
-        price: '14',
-        type: 'gumroad',
-        url: 'https://gumroad.com/l/qVWqe',
-        customClasses: 'gumroad-button',
+        label: 'PDF',
+        price: '6',
+        type: '',
+        url: 'https://www.drivethrurpg.com/product/350062/Book-of-Hanz',
       },
     ],
     alsoAvailableText:
