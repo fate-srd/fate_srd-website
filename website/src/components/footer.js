@@ -29,16 +29,6 @@ const Footer = () => (
           <img src={logo} alt="Fate SRD Logo" className="site-footer__logo" />
         </Link>
       </div>
-      <a
-        href="https://www.patreon.com/fate_srd"
-        className="site-footer__patreon"
-      >
-        <img
-          src={patreon}
-          alt="Become a Patron of the Fate SRD"
-          className="site-footer__patreon-img"
-        />
-      </a>
 
       <nav
         className="site-footer__nav"
@@ -153,19 +143,6 @@ const Footer = () => (
             .
           </p>
         </div>
-      </div>
-      <div className="site-footer__email">
-        <h3>
-          <span>Proud sponsor of the</span>
-          Indie RPG newsletter
-        </h3>
-        <iframe
-          title="indie RPG Newsletter"
-          src="https://ttrpg.substack.com/embed"
-          frameBorder="0"
-          scrolling="no"
-          className="site-footer__email__signup"
-        />
       </div>
     </div>
   </footer>

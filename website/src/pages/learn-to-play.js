@@ -2,6 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import movieBreakdown from '../images/actualPlay/how-to-run-a-contest.jpg';
 
 const LearnToPlay = () => {
   const data = useStaticQuery(graphql`
@@ -36,6 +37,22 @@ const LearnToPlay = () => {
         <br />
 
         <ul className="ap-card__ul">
+          <li>
+            <a href="https://vimeo.com/manage/videos/747298589">
+              <img
+                className="ap-card__img"
+                src={movieBreakdown}
+                alt="The Chase Scene from Indiana Jones 3 as a Contest • Fate SRD Movie Breakdown"
+              />
+            </a>
+            <h3 className="ap-card__title">
+              <a href="https://vimeo.com/manage/videos/747298589">
+                The Chase Scene from Indiana Jones 3 as a Contest • Fate SRD
+                Movie Breakdown
+              </a>
+            </h3>
+            <p className="small">September 07, 2022</p>
+          </li>
           {data.allYoutubeVideo.edges
             .filter((item) => item.node.videoId !== '1dYG32qrPnk')
             .map((item) => (
