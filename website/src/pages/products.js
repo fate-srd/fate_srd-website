@@ -79,8 +79,8 @@ const Products = () => {
       <main className="main-content-wrapper">
         <h1 className="page-title">Games &amp; Products</h1>
         <p>
-          Discover Fate books, adventures, and more. If you notice something
-          missing <Link to="/contact-us">let us know</Link>.
+          Discover Fate books, adventures, and more. If you'd like to add
+          something to the list, <Link to="/contact-us">let us know</Link>.
         </p>
         <ul className="product-list">{products.map(handleProduct)}</ul>
       </main>

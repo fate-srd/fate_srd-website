@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
@@ -41,6 +41,9 @@ const ActualPlay = () => {
           over the internet. Actual plays may be performed live like a theatre
           show, by video recording, or as a sound recording (i.e. podcast). Some
           actual plays may be provided in several or all of these formats.
+        </p>
+        <p style={{ marginBottom: '3rem' }}>
+          <Link to="/contact-us">Submit a show</Link>
         </p>
 
         <ul>
